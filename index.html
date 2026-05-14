@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
@@ -37,163 +36,162 @@
   }
   button { font-family: inherit; cursor: pointer; border: none; background: none; font-size: inherit; color: inherit; }
 
-/* === Layout === */
-.max-w-2xl { max-width: 42rem; }
-.mx-auto { margin-left: auto; margin-right: auto; }
-.min-h-screen { min-height: 100vh; }
+  /* === Layout === */
+  .max-w-2xl { max-width: 42rem; }
+  .mx-auto { margin-left: auto; margin-right: auto; }
+  .min-h-screen { min-height: 100vh; }
 
-/* === Display === */
-.flex { display: flex; }
-.grid { display: grid; }
-.inline-block { display: inline-block; }
-.flex-col { flex-direction: column; }
-.flex-wrap { flex-wrap: wrap; }
-.items-center { align-items: center; }
-.items-baseline { align-items: baseline; }
-.justify-center { justify-content: center; }
-.justify-between { justify-content: space-between; }
-.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.flex-1 { flex: 1 1 0%; }
-.gap-2 { gap: 0.5rem; }
-.gap-3 { gap: 0.75rem; }
-.space-y-2 > * + * { margin-top: 0.5rem; }
-.space-y-3 > * + * { margin-top: 0.75rem; }
-.space-y-4 > * + * { margin-top: 1rem; }
+  /* === Display === */
+  .flex { display: flex; }
+  .grid { display: grid; }
+  .inline-block { display: inline-block; }
+  .flex-col { flex-direction: column; }
+  .flex-wrap { flex-wrap: wrap; }
+  .items-center { align-items: center; }
+  .items-baseline { align-items: baseline; }
+  .justify-center { justify-content: center; }
+  .justify-between { justify-content: space-between; }
+  .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .flex-1 { flex: 1 1 0%; }
+  .gap-2 { gap: 0.5rem; }
+  .gap-3 { gap: 0.75rem; }
+  .space-y-2 > * + * { margin-top: 0.5rem; }
+  .space-y-3 > * + * { margin-top: 0.75rem; }
+  .space-y-4 > * + * { margin-top: 1rem; }
 
-/* === Position === */
-.sticky { position: sticky; }
-.top-0 { top: 0; }
-.z-10 { z-index: 10; }
+  /* === Position === */
+  .sticky { position: sticky; }
+  .top-0 { top: 0; }
+  .z-10 { z-index: 10; }
 
-/* === Size === */
-.w-full { width: 100%; }
-.h-1 { height: 0.25rem; }
-.h-2 { height: 0.5rem; }
-.h-full { height: 100%; }
-.min-h-card { min-height: 280px; }
+  /* === Size === */
+  .w-full { width: 100%; }
+  .h-1 { height: 0.25rem; }
+  .h-2 { height: 0.5rem; }
+  .h-full { height: 100%; }
+  .min-h-card { min-height: 280px; }
 
-/* === Spacing === */
-.p-3 { padding: 0.75rem; } .p-4 { padding: 1rem; }
-.p-6 { padding: 1.5rem; } .p-8 { padding: 2rem; }
-.py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
-.py-1.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
-.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-.py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
-.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-.py-5 { padding-top: 1.25rem; padding-bottom: 1.25rem; }
-.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
-.px-4 { padding-left: 1rem; padding-right: 1rem; }
-.pt-1 { padding-top: 0.25rem; } .pt-2 { padding-top: 0.5rem; }
-.pb-20 { padding-bottom: 5rem; }
-.mb-1 { margin-bottom: 0.25rem; } .mb-2 { margin-bottom: 0.5rem; }
-.mb-3 { margin-bottom: 0.75rem; } .mb-4 { margin-bottom: 1rem; }
-.mb-6 { margin-bottom: 1.5rem; }
-.mt-1 { margin-top: 0.25rem; } .mt-4 { margin-top: 1rem; }
-.ml-auto { margin-left: auto; }
-.mr-2 { margin-right: 0.5rem; }
-.last:mb-0:last-child { margin-bottom: 0; }
+  /* === Spacing === */
+  .p-3 { padding: 0.75rem; } .p-4 { padding: 1rem; }
+  .p-6 { padding: 1.5rem; } .p-8 { padding: 2rem; }
+  .py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+  .py-1\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
+  .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+  .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+  .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+  .py-5 { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+  .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+  .px-4 { padding-left: 1rem; padding-right: 1rem; }
+  .pt-1 { padding-top: 0.25rem; } .pt-2 { padding-top: 0.5rem; }
+  .pb-20 { padding-bottom: 5rem; }
+  .mb-1 { margin-bottom: 0.25rem; } .mb-2 { margin-bottom: 0.5rem; }
+  .mb-3 { margin-bottom: 0.75rem; } .mb-4 { margin-bottom: 1rem; }
+  .mb-6 { margin-bottom: 1.5rem; }
+  .mt-1 { margin-top: 0.25rem; } .mt-4 { margin-top: 1rem; }
+  .ml-auto { margin-left: auto; }
+  .mr-2 { margin-right: 0.5rem; }
+  .last\:mb-0:last-child { margin-bottom: 0; }
 
-/* === Typography === */
-.text-xs { font-size: 0.75rem; }
-.text-sm { font-size: 0.875rem; }
-.text-base { font-size: 1rem; }
-.text-lg { font-size: 1.125rem; }
-.text-xl { font-size: 1.25rem; }
-.text-2xl { font-size: 1.5rem; }
-.text-3xl { font-size: 1.875rem; }
-.text-4xl { font-size: 2.25rem; }
-.text-6xl { font-size: 3.75rem; }
-.font-bold { font-weight: 700; }
-.font-semibold { font-weight: 600; }
-.font-medium { font-weight: 500; }
-.font-normal { font-weight: 400; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
-.text-center { text-align: center; }
-.leading-relaxed { line-height: 1.625; }
-.leading-none { line-height: 1; }
-.tracking-wider { letter-spacing: 0.05em; }
-.uppercase { text-transform: uppercase; }
-.underline { text-decoration: underline; }
+  /* === Typography === */
+  .text-xs { font-size: 0.75rem; }
+  .text-sm { font-size: 0.875rem; }
+  .text-base { font-size: 1rem; }
+  .text-lg { font-size: 1.125rem; }
+  .text-xl { font-size: 1.25rem; }
+  .text-2xl { font-size: 1.5rem; }
+  .text-3xl { font-size: 1.875rem; }
+  .text-4xl { font-size: 2.25rem; }
+  .text-6xl { font-size: 3.75rem; }
+  .font-bold { font-weight: 700; }
+  .font-semibold { font-weight: 600; }
+  .font-medium { font-weight: 500; }
+  .font-normal { font-weight: 400; }
+  .text-left { text-align: left; }
+  .text-right { text-align: right; }
+  .text-center { text-align: center; }
+  .leading-relaxed { line-height: 1.625; }
+  .leading-none { line-height: 1; }
+  .tracking-wider { letter-spacing: 0.05em; }
+  .uppercase { text-transform: uppercase; }
+  .underline { text-decoration: underline; }
 
-/* === Backgrounds === */
-.bg-white { background-color: #ffffff; }
-.bg-stone-50 { background-color: #fafaf9; }
-.bg-stone-100 { background-color: #f5f5f4; }
-.bg-stone-200 { background-color: #e7e5e4; }
-.bg-green-50 { background-color: #f0fdf4; }
-.bg-green-100 { background-color: #dcfce7; }
-.bg-green-500 { background-color: #22c55e; }
-.bg-green-600 { background-color: #16a34a; }
-.bg-red-50 { background-color: #fef2f2; }
-.bg-red-100 { background-color: #fee2e2; }
-.bg-red-400 { background-color: #f87171; }
-.bg-red-500 { background-color: #ef4444; }
-.bg-orange-400 { background-color: #fb923c; }
-.bg-orange-500 { background-color: #f97316; }
-.bg-yellow-500 { background-color: #eab308; }
+  /* === Backgrounds === */
+  .bg-white { background-color: #ffffff; }
+  .bg-stone-50 { background-color: #fafaf9; }
+  .bg-stone-100 { background-color: #f5f5f4; }
+  .bg-stone-200 { background-color: #e7e5e4; }
+  .bg-green-50 { background-color: #f0fdf4; }
+  .bg-green-100 { background-color: #dcfce7; }
+  .bg-green-500 { background-color: #22c55e; }
+  .bg-green-600 { background-color: #16a34a; }
+  .bg-red-50 { background-color: #fef2f2; }
+  .bg-red-100 { background-color: #fee2e2; }
+  .bg-red-400 { background-color: #f87171; }
+  .bg-red-500 { background-color: #ef4444; }
+  .bg-orange-400 { background-color: #fb923c; }
+  .bg-orange-500 { background-color: #f97316; }
+  .bg-yellow-500 { background-color: #eab308; }
 
-/* === Text colors === */
-.text-white { color: #ffffff; }
-.text-stone-400 { color: #a8a29e; }
-.text-stone-500 { color: #78716c; }
-.text-stone-600 { color: #57534e; }
-.text-stone-700 { color: #44403c; }
-.text-green-600 { color: #16a34a; }
-.text-green-700 { color: #15803d; }
-.text-red-500 { color: #ef4444; }
-.text-red-700 { color: #b91c1c; }
-.text-orange-500 { color: #f97316; }
-.text-yellow-500 { color: #eab308; }
+  /* === Text colors === */
+  .text-white { color: #ffffff; }
+  .text-stone-400 { color: #a8a29e; }
+  .text-stone-500 { color: #78716c; }
+  .text-stone-600 { color: #57534e; }
+  .text-stone-700 { color: #44403c; }
+  .text-green-600 { color: #16a34a; }
+  .text-green-700 { color: #15803d; }
+  .text-red-500 { color: #ef4444; }
+  .text-red-700 { color: #b91c1c; }
+  .text-orange-500 { color: #f97316; }
+  .text-yellow-500 { color: #eab308; }
 
-/* === Borders === */
-.border { border: 1px solid #e7e5e4; }
-.border-2 { border-width: 2px; border-style: solid; }
-.border-l-4 { border-left-width: 4px; border-left-style: solid; }
-.border-stone-100 { border-color: #f5f5f4; }
-.border-stone-200 { border-color: #e7e5e4; }
-.border-stone-300 { border-color: #d6d3d1; }
-.border-red-300 { border-color: #fca5a5; }
-.border-red-400 { border-color: #f87171; }
-.border-green-300 { border-color: #86efac; }
-.border-yellow-400 { border-color: #facc15; }
-.border-yellow-500 { border-color: #eab308; }
-.rounded-lg { border-radius: 0.5rem; }
-.rounded-xl { border-radius: 0.75rem; }
-.rounded-2xl { border-radius: 1rem; }
-.rounded-full { border-radius: 9999px; }
+  /* === Borders === */
+  .border { border: 1px solid #e7e5e4; }
+  .border-2 { border-width: 2px; border-style: solid; }
+  .border-l-4 { border-left-width: 4px; border-left-style: solid; }
+  .border-stone-100 { border-color: #f5f5f4; }
+  .border-stone-200 { border-color: #e7e5e4; }
+  .border-stone-300 { border-color: #d6d3d1; }
+  .border-red-300 { border-color: #fca5a5; }
+  .border-red-400 { border-color: #f87171; }
+  .border-green-300 { border-color: #86efac; }
+  .border-yellow-400 { border-color: #facc15; }
+  .border-yellow-500 { border-color: #eab308; }
+  .rounded-lg { border-radius: 0.5rem; }
+  .rounded-xl { border-radius: 0.75rem; }
+  .rounded-2xl { border-radius: 1rem; }
+  .rounded-full { border-radius: 9999px; }
 
-/* === Effects === */
-.shadow-sm { box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
-.shadow-md { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-.shadow-lg { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-.opacity-80 { opacity: 0.8; }
-.opacity-90 { opacity: 0.9; }
-.overflow-hidden { overflow: hidden; }
-.cursor-pointer { cursor: pointer; }
+  /* === Effects === */
+  .shadow-sm { box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+  .shadow-md { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+  .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+  .opacity-80 { opacity: 0.8; }
+  .opacity-90 { opacity: 0.9; }
+  .overflow-hidden { overflow: hidden; }
+  .cursor-pointer { cursor: pointer; }
 
-/* === App-specific theme === */
-.navy { background-color: #1e3a8a; }
-.navy-text { color: #1e3a8a; }
-.gold { background-color: #f59e0b; }
-.gold-text { color: #d97706; }
-.gold-bg-soft { background-color: #fef3c7; }
-.tier-s { background-color: #dc2626; color: white; }
-.tier-a { background-color: #ea580c; color: white; }
-.tier-c { background-color: #7c3aed; color: white; }
-.opt-btn { transition: all 0.15s; -webkit-touch-callout: none; }
-.opt-btn:active { transform: scale(0.97); }
-.opt-correct { background-color: #16a34a !important; color: white !important; border-color: #15803d !important; }
-.opt-wrong { background-color: #dc2626 !important; color: white !important; border-color: #b91c1c !important; }
-.opt-disabled { pointer-events: none; }
-.fade-in { animation: fadeIn 0.25s ease-in; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-.badge { padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; display: inline-block; }
-.progress-bar { transition: width 0.4s ease; }
-.selectable { user-select: text; -webkit-user-select: text; }
+  /* === App-specific theme === */
+  .navy { background-color: #1e3a8a; }
+  .navy-text { color: #1e3a8a; }
+  .gold { background-color: #f59e0b; }
+  .gold-text { color: #d97706; }
+  .gold-bg-soft { background-color: #fef3c7; }
+  .tier-s { background-color: #dc2626; color: white; }
+  .tier-a { background-color: #ea580c; color: white; }
+  .tier-c { background-color: #7c3aed; color: white; }
+  .opt-btn { transition: all 0.15s; -webkit-touch-callout: none; }
+  .opt-btn:active { transform: scale(0.97); }
+  .opt-correct { background-color: #16a34a !important; color: white !important; border-color: #15803d !important; }
+  .opt-wrong { background-color: #dc2626 !important; color: white !important; border-color: #b91c1c !important; }
+  .opt-disabled { pointer-events: none; }
+  .fade-in { animation: fadeIn 0.25s ease-in; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .badge { padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; display: inline-block; }
+  .progress-bar { transition: width 0.4s ease; }
+  .selectable { user-select: text; -webkit-user-select: text; }
 </style>
-
 </head>
 <body class="bg-stone-50 min-h-screen pb-20">
 
@@ -652,6 +650,172 @@ const QUESTIONS = [
     opts: ['脂肪', '醣', '蛋白質', '維生素'],
     ans: 1,
     exp: '運動短期供能主要靠醣（碳水化合物，葡萄糖→ATP）。脂肪為長期儲能（耐力運動後段才動用）；蛋白質為修復組織；維生素為輔酶不直接供能。考點：每年體育常識。'
+  },
+
+  // ============ BATCH 2：弱點補強（自然 8 + 多益 6 + 數學 6）============
+  {
+    id: 'SC006', subject: '自然', tier: 'A', topic: '細胞種類',
+    src: '105-23',
+    q: '下列何者屬於真核生物？',
+    opts: ['大腸桿菌', '流感病毒', '藍綠菌', '變形蟲'],
+    ans: 3,
+    exp: '真核生物 = 細胞有「核膜」包覆的核（如變形蟲、酵母菌、人體細胞、植物）。原核 = 沒有核膜（細菌、藍綠菌）。病毒不算細胞，無生命機制。考點：細胞基本分類，三年內必考。'
+  },
+  {
+    id: 'SC007', subject: '自然', tier: 'A', topic: '光合作用',
+    src: '108-34',
+    q: '植物進行光合作用所需的原料為？',
+    opts: ['二氧化碳 + 水', '氧氣 + 水', '二氧化碳 + 氧氣', '葡萄糖 + 水'],
+    ans: 0,
+    exp: '光合作用：CO₂ + H₂O →（光、葉綠體）→ 葡萄糖 + O₂。呼吸作用是相反：葡萄糖 + O₂ → CO₂ + H₂O + 能量。記憶法：植物白天「吸碳吐氧」，晚上也呼吸但量少。'
+  },
+  {
+    id: 'SC008', subject: '自然', tier: 'A', topic: '生態系',
+    src: '113-35',
+    q: '下列哪一種生物屬於生態系中的「分解者」？',
+    opts: ['老鷹', '兔子', '蘑菇', '水稻'],
+    ans: 2,
+    exp: '生產者 = 行光合作用的生物（如水稻、藻類）；消費者 = 動物（兔→鷹）；分解者 = 真菌與細菌（蘑菇、麴菌）。三者構成完整能量循環。'
+  },
+  {
+    id: 'SC009', subject: '自然', tier: 'A', topic: '人體系統',
+    src: '107-34',
+    q: '人體在劇烈運動時，呼吸頻率加快，主要由身體哪一系統調節？',
+    opts: ['消化系統', '神經系統', '內分泌系統', '排泄系統'],
+    ans: 1,
+    exp: '腦幹中的「延腦」含呼吸中樞，屬神經系統。當血液 CO₂ 上升、O₂ 下降時，神經系統偵測並命令呼吸加快。內分泌系統較慢，神經系統較快。'
+  },
+  {
+    id: 'SC010', subject: '自然', tier: 'C', topic: '永續政策',
+    src: '113-trend',
+    q: '台灣 2050 淨零排放是國家政策目標，下列哪一項對減碳貢獻「最有限」？',
+    opts: ['騎自行車取代開車', '多吃植物性食物', '使用節能電器', '室內冷氣設定 16 度'],
+    ans: 3,
+    exp: '冷氣設得太低反而耗電量大、增加碳排。經濟部建議室內 26-28 度為佳。其他三項都有效減碳：交通、飲食、節能。115 年延伸 113 永續題型，必考方向。'
+  },
+  {
+    id: 'SC011', subject: '自然', tier: 'A', topic: '生殖',
+    src: '112-36',
+    q: '下列何者「不是」有性生殖？',
+    opts: ['開花植物授粉受精', '草履蟲分裂繁殖', '鳥類交配產卵', '蕨類精卵結合'],
+    ans: 1,
+    exp: '有性生殖 = 需精卵結合（基因多樣性高）；無性生殖 = 不需精卵（基因與親代相同）。草履蟲分裂、酵母菌出芽、植物扦插都是無性生殖。'
+  },
+  {
+    id: 'SC012', subject: '自然', tier: 'B', topic: '顯微鏡',
+    src: '113-32',
+    q: '將數字「91」放在解剖顯微鏡下觀察，會看到放大的？',
+    opts: ['61', '91', '19', '16'],
+    ans: 3,
+    exp: '解剖顯微鏡呈「倒立像」（旋轉180°）。91 旋轉 180° = 16。技巧：把紙旋轉 180° 看到的就是答案。考點：基本實驗器材操作。'
+  },
+  {
+    id: 'SC013', subject: '自然', tier: 'B', topic: '光學',
+    src: '105-trend',
+    q: '太陽光經過三稜鏡後分散成紅橙黃綠藍靛紫七色，這現象稱為？',
+    opts: ['折射', '反射', '色散', '繞射'],
+    ans: 2,
+    exp: '色散：不同波長的光在三稜鏡中折射率不同（紅光折射最少、紫光最多），分散成可見光譜。彩虹也是色散現象（水滴當作小三稜鏡）。'
+  },
+
+  // 多益職場英文 6 題
+  {
+    id: 'EN011', subject: '英文', tier: 'C', topic: '多益動詞',
+    src: '113-trend',
+    q: 'The hotel manager will _____ the guest immediately after receiving the complaint.',
+    opts: ['contact', 'contacts', 'contacting', 'contacted'],
+    ans: 0,
+    exp: '助動詞 will 後接「動詞原形」。整句意：經理收到客訴後會立刻聯絡客人。考點：多益客訴情境必考。'
+  },
+  {
+    id: 'EN012', subject: '英文', tier: 'C', topic: '多益片語',
+    src: '113-trend',
+    q: 'The marketing department is responsible _____ the new ad campaign.',
+    opts: ['for', 'of', 'with', 'by'],
+    ans: 0,
+    exp: 'be responsible for + N = 負責...（固定片語）。記憶：負責「為了」某事 → for。in charge of 也表負責但介系詞不同。多益必背。'
+  },
+  {
+    id: 'EN013', subject: '英文', tier: 'C', topic: '被動式',
+    src: '113-trend',
+    q: 'The package was _____ to the wrong address by mistake.',
+    opts: ['delivered', 'delivering', 'deliver', 'delivers'],
+    ans: 0,
+    exp: 'was/were + V-ed = 被動式。「包裹被送錯地址」→ 包裹是被動對象。考點：被動語態 + 多益物流字彙。'
+  },
+  {
+    id: 'EN014', subject: '英文', tier: 'C', topic: '介系詞',
+    src: '113-trend',
+    q: 'All employees must complete the training _____ Friday.',
+    opts: ['on', 'at', 'by', 'until'],
+    ans: 2,
+    exp: 'by + 時間點 = 在...之前（截止日，動作完成）；until + 時間 = 持續到那時（動作延續）。「必須在週五前完成」用 by。考點：超高頻錯題。'
+  },
+  {
+    id: 'EN015', subject: '英文', tier: 'C', topic: '商業套語',
+    src: '113-trend',
+    q: 'Please find _____ the document you requested.',
+    opts: ['attached', 'attaching', 'attach', 'attachment'],
+    ans: 0,
+    exp: '「Please find attached + 文件」= 隨信附上...，商業書信標準套語。文法上是 find + O + p.p.（過去分詞補語）。Email 必背。'
+  },
+  {
+    id: 'EN016', subject: '英文', tier: 'C', topic: '介系詞 to',
+    src: '113-trend',
+    q: 'We look forward _____ from you soon.',
+    opts: ['to hear', 'to hearing', 'hearing', 'hear'],
+    ans: 1,
+    exp: 'look forward to + V-ing（這裡 to 是「介系詞」不是不定詞，後接動名詞）= 期待...。同類型：be used to V-ing（習慣於）、object to V-ing（反對）。多益高頻陷阱題。'
+  },
+
+  // 數學深化 6 題
+  {
+    id: 'MA011', subject: '數學', tier: 'S', topic: '質數判別',
+    src: '105-trend',
+    q: '下列何者「不是」質數？',
+    opts: ['41', '51', '53', '59'],
+    ans: 1,
+    exp: '51 = 3 × 17（各位數字和 5+1=6 可被 3 整除，即原數可被 3 整除）。41、53、59 都是質數。判別技巧：個位數 1/3/7/9 且各位數字和不能被 3 整除。'
+  },
+  {
+    id: 'MA012', subject: '數學', tier: 'A', topic: '因式分解',
+    src: '108-trend',
+    q: '因式分解 x² − 5x + 6 = ?',
+    opts: ['(x−1)(x−6)', '(x−2)(x−3)', '(x−1)(x+6)', '(x+2)(x+3)'],
+    ans: 1,
+    exp: '找兩數：相乘 = 6、相加 = −5 → −2 與 −3。(x−2)(x−3) = x² − 5x + 6 ✓。十字相乘法基本款，國中數學核心。'
+  },
+  {
+    id: 'MA013', subject: '數學', tier: 'S', topic: '質數性質',
+    src: '109-trend',
+    q: '兩個「相異」的質數相加，得到 14。這兩個質數是？',
+    opts: ['1, 13', '3, 11', '5, 9', '7, 7'],
+    ans: 1,
+    exp: '質數定義：大於 1 的自然數，只能被 1 和自己整除。A：1 不是質數；C：9=3² 不是質數；D：兩個 7 相同不符「相異」；B：3、11 都是相異質數且 3+11=14 ✓。'
+  },
+  {
+    id: 'MA014', subject: '數學', tier: 'C', topic: '教學情境',
+    src: '113-trend',
+    q: '學生計算「3 + 5 × 2」得到答案 16，這隱含學生哪一個迷思？',
+    opts: ['不知道乘法', '習慣由左至右計算（忽略先乘除）', '誤以為加法優先', '不知道分配律'],
+    ans: 1,
+    exp: '正解：3+5×2 = 3+10 = 13。學生算成 (3+5)×2 = 16 是「從左讀到右」忽略先乘除。國小高年級典型迷思，國小教師面對的題型。'
+  },
+  {
+    id: 'MA015', subject: '數學', tier: 'A', topic: '直線斜率',
+    src: '109-trend',
+    q: '通過 (1, 2) 和 (3, 6) 兩點的直線斜率為？',
+    opts: ['1', '2', '1/2', '4'],
+    ans: 1,
+    exp: '斜率公式：m = (y₂−y₁) / (x₂−x₁) = (6−2) / (3−1) = 4/2 = 2。記憶：「y 變化 ÷ x 變化」。105-113 連續出題範圍。'
+  },
+  {
+    id: 'MA016', subject: '數學', tier: 'A', topic: '韋達定理',
+    src: '108-trend',
+    q: '二次方程 x² − 6x + 8 = 0 的兩根之和為？',
+    opts: ['−6', '6', '−8', '8'],
+    ans: 1,
+    exp: '韋達定理：ax²+bx+c=0 → 兩根之和 = −b/a，兩根之積 = c/a。此題：和 = −(−6)/1 = 6；積 = 8/1 = 8。也可分解：(x−2)(x−4)=0 → 根為 2、4，和 = 6。'
   }
 ];
 
@@ -686,7 +850,80 @@ const FLASHCARDS = [
   { f: '等量公理', b: '等號兩邊同加/減/乘/除同一數，等號仍成立', cat: '數學' },
   { f: '葉石濤', b: '臺南文學代表（《台灣文學史綱》）', cat: '本土' },
   { f: '十三行文化', b: '臺灣鐵器時代史前文化（新北八里）', cat: '社會' },
-  { f: 'RE100 不認可的「綠電」', b: '核能（因放射性廢料）', cat: '永續' }
+  { f: 'RE100 不認可的「綠電」', b: '核能（因放射性廢料）', cat: '永續' },
+
+  // === BATCH 2：自然濃縮（按你的厭惡度排序，從喜歡的先）===
+  // 光學 (你教過五上，有理解骨架)
+  { f: '色散現象', b: '太陽光經三稜鏡分七色（紅橙黃綠藍靛紫）', cat: '光學' },
+  { f: '紅光 vs 紫光的折射差異', b: '紅光折射最少、紫光最多（紫光波長短、折射強）', cat: '光學' },
+  { f: '彩虹的形成原理', b: '水滴 = 小三稜鏡，發生色散', cat: '光學' },
+  { f: '凸透鏡的功能', b: '聚光（放大鏡、老花鏡）', cat: '光學' },
+  { f: '凹透鏡的功能', b: '散光（近視鏡）', cat: '光學' },
+  { f: '顯微鏡的成像特性', b: '倒立放大像（旋轉 180°）。91→16，q→b', cat: '光學' },
+  { f: '光的三原色', b: '紅綠藍（RGB），相加得白光', cat: '光學' },
+  { f: '太陽高度角與影子關係', b: '高度角越高 → 影子越短。夏至最高、冬至最低；一天中正午最高', cat: '光學' },
+
+  // 月相天文 (你教過但忘了)
+  { f: '月相口訣', b: '上上上西西，下下下東東', cat: '月相' },
+  { f: '上弦月特性', b: '農曆上半月、上半夜、亮面朝西、像 D 字', cat: '月相' },
+  { f: '下弦月特性', b: '農曆下半月、下半夜、亮面朝東、像 C 字', cat: '月相' },
+  { f: '新月與滿月', b: '新月 = 初一（看不到）；滿月 = 十五（全亮）', cat: '月相' },
+  { f: '月相週期', b: '約 29.5 天（朔望月）', cat: '月相' },
+
+  // 化學 (你大學紡織化學三年，送分區)
+  { f: '石蕊試紙顯色', b: '酸性 = 紅；鹼性 = 藍', cat: '化學' },
+  { f: '酚酞顯色', b: '酸性 / 中性 = 無色；鹼性 = 粉紅', cat: '化學' },
+  { f: 'pH 值判讀', b: '<7 酸性、=7 中性、>7 鹼性', cat: '化學' },
+  { f: '常見的酸', b: '食醋（醋酸）、檸檬（檸檬酸）、汽水（碳酸）、胃酸（鹽酸）', cat: '化學' },
+  { f: '常見的鹼', b: '小蘇打、肥皂、氨水、氫氧化鈉（強鹼）', cat: '化學' },
+  { f: '燃燒三要素', b: '可燃物 + 助燃物（O₂） + 達燃點', cat: '化學' },
+  { f: '滅火三法', b: '隔絕氧氣、降溫至燃點以下、移除可燃物', cat: '化學' },
+  { f: '物理 vs 化學變化', b: '物理：水蒸發、冰融、切碎；化學：燃燒、生鏽、發酵', cat: '化學' },
+
+  // 生態系 (中立)
+  { f: '生態系三角色', b: '生產者（綠植物）→ 消費者（動物）→ 分解者（真菌細菌）', cat: '生態' },
+  { f: '食物鏈箭頭方向', b: '箭頭指向「吃的人」（草 → 兔 → 鷹）', cat: '生態' },
+  { f: '能量金字塔法則', b: '10% 法則，營養階層越高能量越少', cat: '生態' },
+  { f: '永續政策三大關鍵字', b: 'RE100、淨零排放（2050）、SDGs（聯合國 17 項目標）', cat: '生態' },
+  { f: '再生能源範圍', b: '太陽能、風能、水力、地熱、生質能（核能不算）', cat: '生態' },
+
+  // 植物 (你對藥草有興趣)
+  { f: '光合作用方程式', b: 'CO₂ + H₂O →（光、葉綠體）→ 葡萄糖 + O₂', cat: '植物' },
+  { f: '呼吸作用方程式', b: '葡萄糖 + O₂ → CO₂ + H₂O + 能量', cat: '植物' },
+  { f: '有性 vs 無性生殖', b: '有性：開花授粉、動物交配。無性：草履蟲分裂、出芽、扦插', cat: '植物' },
+  { f: '裸子 vs 被子植物', b: '裸子：松柏銀杏（種子裸露）。被子：開花植物（種子有果實包覆）', cat: '植物' },
+
+  // 細胞與人體 (中等厭惡，精簡)
+  { f: '原核 vs 真核細胞', b: '原核（無核膜）：細菌、藍綠菌。真核：動植物、酵母菌、變形蟲', cat: '細胞' },
+  { f: '病毒是不是細胞', b: '不是，無生命機制，需寄主才能複製', cat: '細胞' },
+  { f: '植物細胞特有的三個構造', b: '細胞壁、葉綠體、大液胞（動物細胞沒有）', cat: '細胞' },
+  { f: '細胞五大功能配對', b: '表皮 = 保護、紅血球 = 運氧、肌肉 = 收縮、神經 = 傳訊、生殖 = 繁衍', cat: '細胞' },
+  { f: '人體八大系統', b: '循環、呼吸、消化、神經、骨骼、肌肉、生殖、排泄', cat: '人體' },
+  { f: '體循環路徑', b: '左心室 → 主動脈 → 全身 → 右心房（記憶：室送、房收）', cat: '人體' },
+  { f: '肺循環路徑', b: '右心室 → 肺動脈 → 肺 → 左心房', cat: '人體' },
+  { f: '呼吸頻率由誰調節', b: '神經系統（延腦呼吸中樞偵測 CO₂）', cat: '人體' },
+
+  // 電學物理 (你的死穴，最少張)
+  { f: '歐姆定律', b: 'V = IR（電壓 = 電流 × 電阻）', cat: '電學' },
+  { f: '電池串聯 vs 並聯', b: '串聯：電壓加總。並聯：電壓不變但容量加倍', cat: '電學' },
+  { f: '磁鐵磁極規則', b: '同極相斥、異極相吸', cat: '電學' },
+
+  // 昆蟲遺傳 (你最討厭，最少)
+  { f: '昆蟲身體構造', b: '頭、胸、腹三段；6 隻腳全從胸段長出', cat: '生物' },
+  { f: '蜘蛛是不是昆蟲', b: '不是，8 隻腳屬蛛形綱', cat: '生物' },
+  { f: '孟德爾 3:1 比例的條件', b: '兩個雜合親代（Tt × Tt），子代表現型 3 顯性 : 1 隱性', cat: '生物' },
+
+  // === BATCH 2：數學公式速答（看到關鍵字 1 秒反射出公式）===
+  { f: '直線斜率公式', b: 'm = (y₂ − y₁) / (x₂ − x₁)', cat: '數學公式' },
+  { f: '韋達定理：兩根之和', b: '−b / a（二次方程 ax² + bx + c = 0）', cat: '數學公式' },
+  { f: '韋達定理：兩根之積', b: 'c / a', cat: '數學公式' },
+  { f: 'GCD × LCM = ?', b: '兩數的乘積（a × b）', cat: '數學公式' },
+  { f: '50 以內的質數（背）', b: '2、3、5、7、11、13、17、19、23、29、31、37、41、43、47', cat: '數學公式' },
+  { f: '50-100 的質數（背）', b: '53、59、61、67、71、73、79、83、89、97', cat: '數學公式' },
+  { f: '圓面積、圓周長', b: '面積 = πr²；周長 = 2πr', cat: '數學公式' },
+  { f: '球體積、球表面積', b: '體積 = (4/3)πr³；表面積 = 4πr²', cat: '數學公式' },
+  { f: '三角形 / 梯形面積', b: '三角形 = ½ × 底 × 高；梯形 = (上底 + 下底) × 高 ÷ 2', cat: '數學公式' },
+  { f: '等差數列求和', b: 'S = (首項 + 末項) × 項數 ÷ 2', cat: '數學公式' }
 ];
 
 // ============ STORAGE ============
@@ -842,580 +1079,680 @@ function exportData() {
       <div class="font-bold text-lg navy-text mb-2">📤 匯出進度</div>
       <div class="text-sm text-stone-600 mb-3">複製文字或下載 .txt 檔備份，可在其他裝置匯入。</div>
       <textarea id="exportText" readonly style="flex:1;min-height:160px;padding:0.5rem;border:2px solid #e7e5e4;border-radius:0.5rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;resize:vertical;line-height:1.4;-webkit-user-select:text;user-select:text;">${escaped}</textarea>
-
-```
-  <div class="text-xs text-stone-500 mt-1 mb-3">資料大小：${sizeKB} KB</div>
-  <div class="flex gap-2">
-    <button onclick="copyExport()" class="opt-btn flex-1 navy text-white rounded-lg py-2 font-bold text-sm">複製文字</button>
-    <button onclick="downloadExport()" class="opt-btn flex-1 navy text-white rounded-lg py-2 font-bold text-sm">下載 .txt</button>
-  </div>
-  <button onclick="closeModal()" class="opt-btn w-full bg-stone-100 text-stone-700 rounded-lg py-2 font-bold text-sm mt-2">關閉</button>
-</div>
-```
-
-`);
+      <div class="text-xs text-stone-500 mt-1 mb-3">資料大小：${sizeKB} KB</div>
+      <div class="flex gap-2">
+        <button onclick="copyExport()" class="opt-btn flex-1 navy text-white rounded-lg py-2 font-bold text-sm">複製文字</button>
+        <button onclick="downloadExport()" class="opt-btn flex-1 navy text-white rounded-lg py-2 font-bold text-sm">下載 .txt</button>
+      </div>
+      <button onclick="closeModal()" class="opt-btn w-full bg-stone-100 text-stone-700 rounded-lg py-2 font-bold text-sm mt-2">關閉</button>
+    </div>
+  `);
 }
 
 async function copyExport() {
-const ta = document.getElementById(‘exportText’);
-if (!ta) return;
-try {
-if (navigator.clipboard && navigator.clipboard.writeText) {
-await navigator.clipboard.writeText(ta.value);
-} else {
-ta.select();
-document.execCommand(‘copy’);
-}
-alert(‘✓ 已複製到剪貼簿’);
-} catch (e) {
-try { ta.select(); } catch (e2) {}
-alert(‘請手動長按選取文字後複製’);
-}
+  const ta = document.getElementById('exportText');
+  if (!ta) return;
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(ta.value);
+    } else {
+      ta.select();
+      document.execCommand('copy');
+    }
+    alert('✓ 已複製到剪貼簿');
+  } catch (e) {
+    try { ta.select(); } catch (e2) {}
+    alert('請手動長按選取文字後複製');
+  }
 }
 
 function downloadExport() {
-const json = JSON.stringify(userData, null, 2);
-const blob = new Blob([json], { type: ‘text/plain;charset=utf-8’ });
-const url = URL.createObjectURL(blob);
-const a = document.createElement(‘a’);
-a.href = url;
-a.download = `備考刷題進度_${new Date().toISOString().slice(0,10)}.txt`;
-document.body.appendChild(a);
-a.click();
-document.body.removeChild(a);
-setTimeout(() => URL.revokeObjectURL(url), 200);
+  const json = JSON.stringify(userData, null, 2);
+  const blob = new Blob([json], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `備考刷題進度_${new Date().toISOString().slice(0,10)}.txt`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 200);
 }
 
 function importData() {
-showModal(`<div class="bg-white rounded-2xl p-5 shadow-lg" style="max-width:500px;width:100%;max-height:85vh;display:flex;flex-direction:column;"> <div class="font-bold text-lg navy-text mb-2">📥 匯入進度</div> <div class="text-sm text-stone-600 mb-1">貼上備份文字或選擇 .txt 檔。</div> <div class="text-xs text-red-700 font-semibold mb-3">⚠ 此操作會覆蓋目前所有進度</div> <textarea id="importText" placeholder="把備份文字貼到這裡..." style="flex:1;min-height:160px;padding:0.5rem;border:2px solid #e7e5e4;border-radius:0.5rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;resize:vertical;line-height:1.4;-webkit-user-select:text;user-select:text;"></textarea> <div class="flex gap-2 mt-3"> <button onclick="uploadImport()" class="opt-btn flex-1 bg-stone-100 text-stone-700 rounded-lg py-2 font-bold text-sm">📁 從檔案載入</button> <button onclick="confirmImport()" class="opt-btn flex-1 navy text-white rounded-lg py-2 font-bold text-sm">確認匯入</button> </div> <button onclick="closeModal()" class="opt-btn w-full bg-stone-100 text-stone-700 rounded-lg py-2 font-bold text-sm mt-2">取消</button> </div>`);
+  showModal(`
+    <div class="bg-white rounded-2xl p-5 shadow-lg" style="max-width:500px;width:100%;max-height:85vh;display:flex;flex-direction:column;">
+      <div class="font-bold text-lg navy-text mb-2">📥 匯入進度</div>
+      <div class="text-sm text-stone-600 mb-1">貼上備份文字或選擇 .txt 檔。</div>
+      <div class="text-xs text-red-700 font-semibold mb-3">⚠ 此操作會覆蓋目前所有進度</div>
+      <textarea id="importText" placeholder="把備份文字貼到這裡..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="flex:1;min-height:160px;padding:0.5rem;border:2px solid #e7e5e4;border-radius:0.5rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;resize:vertical;line-height:1.4;-webkit-user-select:text;user-select:text;"></textarea>
+      <div class="flex gap-2 mt-3">
+        <button onclick="uploadImport()" class="opt-btn flex-1 bg-stone-100 text-stone-700 rounded-lg py-2 font-bold text-sm">📁 從檔案載入</button>
+        <button onclick="confirmImport()" class="opt-btn flex-1 navy text-white rounded-lg py-2 font-bold text-sm">確認匯入</button>
+      </div>
+      <button onclick="closeModal()" class="opt-btn w-full bg-stone-100 text-stone-700 rounded-lg py-2 font-bold text-sm mt-2">取消</button>
+    </div>
+  `);
 }
 
 function uploadImport() {
-const input = document.createElement(‘input’);
-input.type = ‘file’;
-input.accept = ‘.txt,.json,text/plain,application/json’;
-input.onchange = (e) => {
-const file = e.target.files[0];
-if (!file) return;
-const reader = new FileReader();
-reader.onload = (ev) => {
-const ta = document.getElementById(‘importText’);
-if (ta) ta.value = ev.target.result;
-};
-reader.readAsText(file);
-};
-input.click();
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.txt,.json,text/plain,application/json';
+  input.onchange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const ta = document.getElementById('importText');
+      if (ta) ta.value = ev.target.result;
+    };
+    reader.readAsText(file);
+  };
+  input.click();
 }
 
 async function confirmImport() {
-const ta = document.getElementById(‘importText’);
-const text = ta ? ta.value.trim() : ‘’;
-if (!text) { alert(‘請先貼上備份文字或從檔案載入’); return; }
-try {
-const parsed = JSON.parse(text);
-if (!parsed.stats || typeof parsed.attempts !== ‘object’) {
-throw new Error(‘Invalid format’);
-}
-userData = { …defaultData(), …parsed };
-await doSave();
-closeModal();
-const stats = userData.stats || {};
-alert(`✓ 匯入成功！\n已答題：${stats.allTimeAnswered || 0} 題\n錯題：${(userData.wrongList || []).length} 題`);
-state.view = ‘home’;
-render();
-} catch (e) {
-alert(‘✗ 匯入失敗：文字格式不正確\n請確認是從本 App 匯出的資料’);
-}
+  const ta = document.getElementById('importText');
+  let text = ta ? ta.value.trim() : '';
+  if (!text) { alert('請先貼上備份文字或從檔案載入'); return; }
+  // Normalize iOS smart quotes → straight quotes (JSON parser needs straight)
+  text = text
+    .replace(/[\u201C\u201D\u201E\u201F]/g, '"')
+    .replace(/[\u2018\u2019\u201A\u201B]/g, "'")
+    .replace(/\u2026/g, '...')
+    .replace(/[\u2013\u2014]/g, '-');
+  try {
+    const parsed = JSON.parse(text);
+    if (!parsed.stats || typeof parsed.attempts !== 'object') {
+      throw new Error('Invalid format');
+    }
+    userData = { ...defaultData(), ...parsed };
+    await doSave();
+    closeModal();
+    const stats = userData.stats || {};
+    alert(`✓ 匯入成功！\n已答題：${stats.allTimeAnswered || 0} 題\n錯題：${(userData.wrongList || []).length} 題`);
+    state.view = 'home';
+    render();
+  } catch (e) {
+    alert('✗ 匯入失敗：文字格式不正確\n請確認是從本 App 匯出的完整資料');
+  }
 }
 
 // ============ STATE ============
 let state = {
-view: ‘home’, // home | quiz | flashcard | wrong | stats
-filter: { tier: ‘all’, subject: ‘all’ },
-quizQueue: [],
-quizIndex: 0,
-selected: null,
-answered: false,
-fcIndex: 0,
-fcShowBack: false,
-fcCat: ‘all’
+  view: 'home', // home | quiz | flashcard | wrong | stats
+  filter: { tier: 'all', subject: 'all' },
+  quizQueue: [],
+  quizIndex: 0,
+  selected: null,
+  answered: false,
+  fcIndex: 0,
+  fcShowBack: false,
+  fcCat: 'all'
 };
 
 // ============ UTILS ============
 function getFilteredQuestions() {
-return QUESTIONS.filter(q => {
-if (state.filter.tier !== ‘all’ && q.tier !== state.filter.tier) return false;
-if (state.filter.subject !== ‘all’ && q.subject !== state.filter.subject) return false;
-return true;
-});
+  return QUESTIONS.filter(q => {
+    if (state.filter.tier !== 'all' && q.tier !== state.filter.tier) return false;
+    if (state.filter.subject !== 'all' && q.subject !== state.filter.subject) return false;
+    return true;
+  });
 }
 
 function shuffle(arr) {
-const a = […arr];
-for (let i = a.length - 1; i > 0; i–) {
-const j = Math.floor(Math.random() * (i + 1));
-[a[i], a[j]] = [a[j], a[i]];
-}
-return a;
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
 }
 
 function tierBadge(tier) {
-const map = { S: ‘tier-s’, A: ‘tier-a’, B: ‘tier-a’, C: ‘tier-c’ };
-return `<span class="badge ${map[tier] || 'tier-a'}">${tier} 級</span>`;
+  const map = { S: 'tier-s', A: 'tier-a', B: 'tier-a', C: 'tier-c' };
+  return `<span class="badge ${map[tier] || 'tier-a'}">${tier} 級</span>`;
 }
 
 // ============ RENDER ============
 function render() {
-const app = document.getElementById(‘app’);
-app.innerHTML = ‘’;
-if (state.view === ‘home’) renderHome(app);
-else if (state.view === ‘quiz’) renderQuiz(app);
-else if (state.view === ‘flashcard’) renderFlashcard(app);
-else if (state.view === ‘wrong’) renderWrong(app);
-else if (state.view === ‘stats’) renderStats(app);
+  const app = document.getElementById('app');
+  app.innerHTML = '';
+  if (state.view === 'home') renderHome(app);
+  else if (state.view === 'quiz') renderQuiz(app);
+  else if (state.view === 'flashcard') renderFlashcard(app);
+  else if (state.view === 'wrong') renderWrong(app);
+  else if (state.view === 'stats') renderStats(app);
 }
 
 function topBar(title, showBack = true) {
-return `<div class="navy text-white px-4 py-3 flex items-center justify-between sticky top-0 z-10 shadow-md"> <div class="flex items-center gap-2"> ${showBack ? '<button onclick="goHome()" class="text-2xl leading-none">‹</button>' : '<span class="text-xl">📚</span>'} <h1 class="font-bold text-lg">${title}</h1> </div> <div class="text-xs opacity-90">115 學年度</div> </div>`;
+  return `
+    <div class="navy text-white px-4 py-3 flex items-center justify-between sticky top-0 z-10 shadow-md">
+      <div class="flex items-center gap-2">
+        ${showBack ? '<button onclick="goHome()" class="text-2xl leading-none">‹</button>' : '<span class="text-xl">📚</span>'}
+        <h1 class="font-bold text-lg">${title}</h1>
+      </div>
+      <div class="text-xs opacity-90">115 學年度</div>
+    </div>
+  `;
 }
 
 function goHome() {
-state.view = ‘home’;
-state.selected = null;
-state.answered = false;
-render();
+  state.view = 'home';
+  state.selected = null;
+  state.answered = false;
+  render();
 }
 
-// ––––– HOME –––––
+// ---------- HOME ----------
 function renderHome(app) {
-const today = new Date().toISOString().slice(0,10);
-const examDate = new Date(‘2026-05-30’);
-const now = new Date();
-const daysLeft = Math.ceil((examDate - now) / (1000*60*60*24));
-const totalQ = QUESTIONS.length;
-const wrongCount = userData.wrongList.length;
-const stats = userData.stats;
-const accuracy = stats.allTimeAnswered > 0
-? Math.round((stats.allTimeCorrect / stats.allTimeAnswered) * 100)
-: 0;
+  const today = new Date().toISOString().slice(0,10);
+  const examDate = new Date('2026-05-30');
+  const now = new Date();
+  const daysLeft = Math.ceil((examDate - now) / (1000*60*60*24));
+  const totalQ = QUESTIONS.length;
+  const wrongCount = userData.wrongList.length;
+  const stats = userData.stats;
+  const accuracy = stats.allTimeAnswered > 0
+    ? Math.round((stats.allTimeCorrect / stats.allTimeAnswered) * 100)
+    : 0;
 
-app.innerHTML = `
-${topBar(‘教程備考刷題’, false)}
-<div class="p-4 space-y-4 fade-in">
-<!-- Status banner -->
-<div class="gold-bg-soft rounded-xl p-4 border-l-4 border-yellow-500">
-<div class="flex justify-between items-baseline">
-<div>
-<div class="text-sm gold-text font-semibold">距離考試</div>
-<div class="text-3xl font-bold navy-text">${daysLeft} 天</div>
-</div>
-<div class="text-right">
-<div class="text-sm text-stone-600">今日已練</div>
-<div class="text-2xl font-bold">${stats.todayAnswered} 題</div>
-</div>
-</div>
-</div>
+  app.innerHTML = `
+    ${topBar('教程備考刷題', false)}
+    <div class="p-4 space-y-4 fade-in">
+      <!-- Status banner -->
+      <div class="gold-bg-soft rounded-xl p-4 border-l-4 border-yellow-500">
+        <div class="flex justify-between items-baseline">
+          <div>
+            <div class="text-sm gold-text font-semibold">距離考試</div>
+            <div class="text-3xl font-bold navy-text">${daysLeft} 天</div>
+          </div>
+          <div class="text-right">
+            <div class="text-sm text-stone-600">今日已練</div>
+            <div class="text-2xl font-bold">${stats.todayAnswered} 題</div>
+          </div>
+        </div>
+      </div>
 
-```
-  <!-- Quick stats -->
-  <div class="grid grid-cols-3 gap-2">
-    <div class="bg-white rounded-lg p-3 text-center shadow-sm">
-      <div class="text-xs text-stone-500">題庫</div>
-      <div class="text-xl font-bold navy-text">${totalQ}</div>
-    </div>
-    <div class="bg-white rounded-lg p-3 text-center shadow-sm">
-      <div class="text-xs text-stone-500">總正確率</div>
-      <div class="text-xl font-bold ${accuracy >= 70 ? 'text-green-600' : accuracy >= 50 ? 'text-orange-500' : 'text-red-500'}">${accuracy}%</div>
-    </div>
-    <div class="bg-white rounded-lg p-3 text-center shadow-sm">
-      <div class="text-xs text-stone-500">錯題</div>
-      <div class="text-xl font-bold text-red-500">${wrongCount}</div>
-    </div>
-  </div>
+      <!-- Quick stats -->
+      <div class="grid grid-cols-3 gap-2">
+        <div class="bg-white rounded-lg p-3 text-center shadow-sm">
+          <div class="text-xs text-stone-500">題庫</div>
+          <div class="text-xl font-bold navy-text">${totalQ}</div>
+        </div>
+        <div class="bg-white rounded-lg p-3 text-center shadow-sm">
+          <div class="text-xs text-stone-500">總正確率</div>
+          <div class="text-xl font-bold ${accuracy >= 70 ? 'text-green-600' : accuracy >= 50 ? 'text-orange-500' : 'text-red-500'}">${accuracy}%</div>
+        </div>
+        <div class="bg-white rounded-lg p-3 text-center shadow-sm">
+          <div class="text-xs text-stone-500">錯題</div>
+          <div class="text-xl font-bold text-red-500">${wrongCount}</div>
+        </div>
+      </div>
 
-  <!-- Main actions -->
-  <button onclick="startQuiz()" class="opt-btn w-full navy text-white rounded-xl py-5 px-4 font-bold text-lg flex items-center justify-between shadow-lg">
-    <div class="text-left">
-      <div>開始刷題</div>
-      <div class="text-xs font-normal opacity-80 mt-1">隨機出題，自動記錯</div>
-    </div>
-    <div class="text-2xl">▶</div>
-  </button>
+      <!-- Main actions -->
+      <button onclick="startQuiz()" class="opt-btn w-full navy text-white rounded-xl py-5 px-4 font-bold text-lg flex items-center justify-between shadow-lg">
+        <div class="text-left">
+          <div>開始刷題</div>
+          <div class="text-xs font-normal opacity-80 mt-1">隨機出題，自動記錯</div>
+        </div>
+        <div class="text-2xl">▶</div>
+      </button>
 
-  <div class="grid grid-cols-2 gap-3">
-    <button onclick="startFlashcard()" class="opt-btn bg-white rounded-xl py-4 px-3 shadow-sm border-2 border-stone-200">
-      <div class="text-2xl mb-1">🃏</div>
-      <div class="font-bold">閃卡模式</div>
-      <div class="text-xs text-stone-500 mt-1">${FLASHCARDS.length} 張概念卡</div>
-    </button>
-    <button onclick="state.view='wrong'; render();" class="opt-btn bg-white rounded-xl py-4 px-3 shadow-sm border-2 ${wrongCount > 0 ? 'border-red-300' : 'border-stone-200'}">
-      <div class="text-2xl mb-1">📕</div>
-      <div class="font-bold">錯題本</div>
-      <div class="text-xs ${wrongCount > 0 ? 'text-red-500 font-semibold' : 'text-stone-500'} mt-1">${wrongCount} 題待複習</div>
-    </button>
-  </div>
+      <div class="grid grid-cols-2 gap-3">
+        <button onclick="startFlashcard()" class="opt-btn bg-white rounded-xl py-4 px-3 shadow-sm border-2 border-stone-200">
+          <div class="text-2xl mb-1">🃏</div>
+          <div class="font-bold">閃卡模式</div>
+          <div class="text-xs text-stone-500 mt-1">${FLASHCARDS.length} 張概念卡</div>
+        </button>
+        <button onclick="state.view='wrong'; render();" class="opt-btn bg-white rounded-xl py-4 px-3 shadow-sm border-2 ${wrongCount > 0 ? 'border-red-300' : 'border-stone-200'}">
+          <div class="text-2xl mb-1">📕</div>
+          <div class="font-bold">錯題本</div>
+          <div class="text-xs ${wrongCount > 0 ? 'text-red-500 font-semibold' : 'text-stone-500'} mt-1">${wrongCount} 題待複習</div>
+        </button>
+      </div>
 
-  <button onclick="state.view='stats'; render();" class="opt-btn w-full bg-white rounded-xl py-3 px-4 shadow-sm border-2 border-stone-200 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <span class="text-xl">📊</span>
-      <span class="font-bold">學習統計</span>
-    </div>
-    <span class="text-stone-400">›</span>
-  </button>
+      <button onclick="state.view='stats'; render();" class="opt-btn w-full bg-white rounded-xl py-3 px-4 shadow-sm border-2 border-stone-200 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-xl">📊</span>
+          <span class="font-bold">學習統計</span>
+        </div>
+        <span class="text-stone-400">›</span>
+      </button>
 
-  <!-- Filters -->
-  <div class="bg-white rounded-xl p-4 shadow-sm space-y-3">
-    <div class="text-sm font-bold text-stone-700">出題範圍篩選</div>
-    <div>
-      <div class="text-xs text-stone-500 mb-1">等級</div>
-      <div class="flex gap-2 flex-wrap">
-        ${['all','S','A','C'].map(t => `
-          <button onclick="setFilter('tier','${t}')" class="opt-btn px-3 py-1.5 rounded-lg text-sm font-semibold ${state.filter.tier === t ? 'navy text-white' : 'bg-stone-100 text-stone-600'}">
-            ${t === 'all' ? '全部' : t + ' 級'}
-          </button>
-        `).join('')}
+      <!-- Filters -->
+      <div class="bg-white rounded-xl p-4 shadow-sm space-y-3">
+        <div class="text-sm font-bold text-stone-700">出題範圍篩選</div>
+        <div>
+          <div class="text-xs text-stone-500 mb-1">等級</div>
+          <div class="flex gap-2 flex-wrap">
+            ${['all','S','A','C'].map(t => `
+              <button onclick="setFilter('tier','${t}')" class="opt-btn px-3 py-1.5 rounded-lg text-sm font-semibold ${state.filter.tier === t ? 'navy text-white' : 'bg-stone-100 text-stone-600'}">
+                ${t === 'all' ? '全部' : t + ' 級'}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+        <div>
+          <div class="text-xs text-stone-500 mb-1">科目</div>
+          <div class="flex gap-2 flex-wrap">
+            ${['all','語文','英文','數學','社會','自然','藝能'].map(s => `
+              <button onclick="setFilter('subject','${s}')" class="opt-btn px-3 py-1.5 rounded-lg text-sm font-semibold ${state.filter.subject === s ? 'navy text-white' : 'bg-stone-100 text-stone-600'}">
+                ${s === 'all' ? '全科' : s}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+        <div class="text-xs text-stone-500 pt-1">
+          篩選後：${getFilteredQuestions().length} 題
+        </div>
+      </div>
+
+      <!-- Progress management -->
+      <div class="bg-white rounded-xl p-3 shadow-sm">
+        <div class="text-xs font-bold text-stone-700 mb-2">進度管理</div>
+        <div class="text-xs text-stone-500 mb-2">換裝置（手機↔電腦）時：在舊裝置匯出文字 → 新裝置匯入。</div>
+        <div class="flex gap-2">
+          <button onclick="exportData()" class="opt-btn flex-1 bg-stone-100 text-stone-700 rounded-lg py-2 text-xs font-semibold">📤 匯出進度</button>
+          <button onclick="importData()" class="opt-btn flex-1 bg-stone-100 text-stone-700 rounded-lg py-2 text-xs font-semibold">📥 匯入進度</button>
+        </div>
+      </div>
+
+      <div class="text-center text-xs text-stone-400 pt-2">
+        <button onclick="resetData()" class="underline">清除所有紀錄</button>
       </div>
     </div>
-    <div>
-      <div class="text-xs text-stone-500 mb-1">科目</div>
-      <div class="flex gap-2 flex-wrap">
-        ${['all','語文','英文','數學','社會','自然','藝能'].map(s => `
-          <button onclick="setFilter('subject','${s}')" class="opt-btn px-3 py-1.5 rounded-lg text-sm font-semibold ${state.filter.subject === s ? 'navy text-white' : 'bg-stone-100 text-stone-600'}">
-            ${s === 'all' ? '全科' : s}
-          </button>
-        `).join('')}
-      </div>
-    </div>
-    <div class="text-xs text-stone-500 pt-1">
-      篩選後：${getFilteredQuestions().length} 題
-    </div>
-  </div>
-
-  <!-- Progress management -->
-  <div class="bg-white rounded-xl p-3 shadow-sm">
-    <div class="text-xs font-bold text-stone-700 mb-2">進度管理</div>
-    <div class="text-xs text-stone-500 mb-2">換裝置（手機↔電腦）時：在舊裝置匯出文字 → 新裝置匯入。</div>
-    <div class="flex gap-2">
-      <button onclick="exportData()" class="opt-btn flex-1 bg-stone-100 text-stone-700 rounded-lg py-2 text-xs font-semibold">📤 匯出進度</button>
-      <button onclick="importData()" class="opt-btn flex-1 bg-stone-100 text-stone-700 rounded-lg py-2 text-xs font-semibold">📥 匯入進度</button>
-    </div>
-  </div>
-
-  <div class="text-center text-xs text-stone-400 pt-2">
-    <button onclick="resetData()" class="underline">清除所有紀錄</button>
-  </div>
-</div>
-```
-
-`;
+  `;
 }
 
 function setFilter(type, val) {
-state.filter[type] = val;
-render();
+  state.filter[type] = val;
+  render();
 }
 
-// ––––– QUIZ –––––
+// ---------- QUIZ ----------
 function startQuiz() {
-const pool = getFilteredQuestions();
-if (pool.length === 0) {
-alert(‘篩選條件下沒有題目，請放寬篩選’);
-return;
-}
-state.quizQueue = shuffle(pool);
-state.quizIndex = 0;
-state.selected = null;
-state.answered = false;
-state.view = ‘quiz’;
-render();
+  const pool = getFilteredQuestions();
+  if (pool.length === 0) {
+    alert('篩選條件下沒有題目，請放寬篩選');
+    return;
+  }
+  state.quizQueue = shuffle(pool);
+  state.quizIndex = 0;
+  state.selected = null;
+  state.answered = false;
+  state.view = 'quiz';
+  render();
 }
 
 function renderQuiz(app) {
-if (state.quizIndex >= state.quizQueue.length) {
-// session complete
-const cs = userData.currentSession;
-const acc = cs.answered > 0 ? Math.round((cs.correct / cs.answered) * 100) : 0;
-app.innerHTML = `${topBar('本輪完成')} <div class="p-6 text-center fade-in"> <div class="text-6xl mb-4">🎯</div> <div class="text-2xl font-bold navy-text mb-2">完成 ${cs.answered} 題</div> <div class="text-lg mb-6"> 正確率：<span class="font-bold ${acc >= 70 ? 'text-green-600' : acc >= 50 ? 'text-orange-500' : 'text-red-500'}">${acc}%</span> （${cs.correct}/${cs.answered}） </div> <button onclick="startQuiz()" class="opt-btn w-full navy text-white rounded-xl py-3 font-bold mb-3">再來一輪</button> <button onclick="goHome()" class="opt-btn w-full bg-white text-stone-700 rounded-xl py-3 font-bold border-2 border-stone-200">回主頁</button> </div>`;
-return;
-}
+  if (state.quizIndex >= state.quizQueue.length) {
+    // session complete
+    const cs = userData.currentSession;
+    const acc = cs.answered > 0 ? Math.round((cs.correct / cs.answered) * 100) : 0;
+    app.innerHTML = `
+      ${topBar('本輪完成')}
+      <div class="p-6 text-center fade-in">
+        <div class="text-6xl mb-4">🎯</div>
+        <div class="text-2xl font-bold navy-text mb-2">完成 ${cs.answered} 題</div>
+        <div class="text-lg mb-6">
+          正確率：<span class="font-bold ${acc >= 70 ? 'text-green-600' : acc >= 50 ? 'text-orange-500' : 'text-red-500'}">${acc}%</span>
+          （${cs.correct}/${cs.answered}）
+        </div>
+        <button onclick="startQuiz()" class="opt-btn w-full navy text-white rounded-xl py-3 font-bold mb-3">再來一輪</button>
+        <button onclick="goHome()" class="opt-btn w-full bg-white text-stone-700 rounded-xl py-3 font-bold border-2 border-stone-200">回主頁</button>
+      </div>
+    `;
+    return;
+  }
 
-const q = state.quizQueue[state.quizIndex];
-const progress = ((state.quizIndex + (state.answered ? 1 : 0)) / state.quizQueue.length) * 100;
+  const q = state.quizQueue[state.quizIndex];
+  const progress = ((state.quizIndex + (state.answered ? 1 : 0)) / state.quizQueue.length) * 100;
 
-app.innerHTML = ` ${topBar(`第 ${state.quizIndex + 1} / ${state.quizQueue.length} 題`)} <div class="bg-white"> <div class="h-1 bg-stone-100"> <div class="h-full navy progress-bar" style="width:${progress}%"></div> </div> </div> <div class="p-4 fade-in"> <div class="flex items-center gap-2 mb-3 flex-wrap"> ${tierBadge(q.tier)} <span class="badge bg-stone-200 text-stone-700">${q.subject}</span> <span class="badge bg-stone-200 text-stone-700">${q.topic}</span> <span class="text-xs text-stone-400 ml-auto">${q.src}</span> </div> <div class="text-base font-semibold mb-4 leading-relaxed selectable">${q.q}</div> <div class="space-y-2 mb-4" id="opts"> ${q.opts.map((opt, i) => `
-<button id="opt${i}" onclick="selectOption(${i})"
-class="opt-btn w-full text-left p-3 rounded-lg border-2 border-stone-200 bg-white font-medium leading-relaxed">
-<span class="font-bold navy-text mr-2">(${String.fromCharCode(65+i)})</span>${opt}
-</button>
-`).join('')} </div> <div id="feedback"></div> </div> `;
+  app.innerHTML = `
+    ${topBar(`第 ${state.quizIndex + 1} / ${state.quizQueue.length} 題`)}
+    <div class="bg-white">
+      <div class="h-1 bg-stone-100">
+        <div class="h-full navy progress-bar" style="width:${progress}%"></div>
+      </div>
+    </div>
+    <div class="p-4 fade-in">
+      <div class="flex items-center gap-2 mb-3 flex-wrap">
+        ${tierBadge(q.tier)}
+        <span class="badge bg-stone-200 text-stone-700">${q.subject}</span>
+        <span class="badge bg-stone-200 text-stone-700">${q.topic}</span>
+        <span class="text-xs text-stone-400 ml-auto">${q.src}</span>
+      </div>
+      <div class="text-base font-semibold mb-4 leading-relaxed selectable">${q.q}</div>
+      <div class="space-y-2 mb-4" id="opts">
+        ${q.opts.map((opt, i) => `
+          <button id="opt${i}" onclick="selectOption(${i})"
+            class="opt-btn w-full text-left p-3 rounded-lg border-2 border-stone-200 bg-white font-medium leading-relaxed">
+            <span class="font-bold navy-text mr-2">(${String.fromCharCode(65+i)})</span>${opt}
+          </button>
+        `).join('')}
+      </div>
+      <div id="feedback"></div>
+    </div>
+  `;
 }
 
 async function selectOption(i) {
-if (state.answered) return;
-state.selected = i;
-state.answered = true;
-const q = state.quizQueue[state.quizIndex];
-const correct = i === q.ans;
+  if (state.answered) return;
+  state.selected = i;
+  state.answered = true;
+  const q = state.quizQueue[state.quizIndex];
+  const correct = i === q.ans;
 
-// Update stats
-userData.stats.allTimeAnswered++;
-userData.stats.todayAnswered++;
-userData.currentSession.answered++;
-if (correct) {
-userData.stats.allTimeCorrect++;
-userData.stats.todayCorrect++;
-userData.currentSession.correct++;
-}
+  // Update stats
+  userData.stats.allTimeAnswered++;
+  userData.stats.todayAnswered++;
+  userData.currentSession.answered++;
+  if (correct) {
+    userData.stats.allTimeCorrect++;
+    userData.stats.todayCorrect++;
+    userData.currentSession.correct++;
+  }
 
-// Update attempts
-if (!userData.attempts[q.id]) userData.attempts[q.id] = { tries: 0, correct: 0, lastWrong: null };
-userData.attempts[q.id].tries++;
-if (correct) {
-userData.attempts[q.id].correct++;
-// remove from wrong list if mastered (got it right after wrong)
-// Keep it for review, only remove if user explicitly marks mastered
-} else {
-userData.attempts[q.id].lastWrong = Date.now();
-// Add to wrongList if not already there
-if (!userData.wrongList.includes(q.id)) {
-userData.wrongList.unshift(q.id);
-}
-}
+  // Update attempts
+  if (!userData.attempts[q.id]) userData.attempts[q.id] = { tries: 0, correct: 0, lastWrong: null };
+  userData.attempts[q.id].tries++;
+  if (correct) {
+    userData.attempts[q.id].correct++;
+    // remove from wrong list if mastered (got it right after wrong)
+    // Keep it for review, only remove if user explicitly marks mastered
+  } else {
+    userData.attempts[q.id].lastWrong = Date.now();
+    // Add to wrongList if not already there
+    if (!userData.wrongList.includes(q.id)) {
+      userData.wrongList.unshift(q.id);
+    }
+  }
 
-await saveData();
+  await saveData();
 
-// UI feedback
-document.querySelectorAll(’#opts button’).forEach(btn => btn.classList.add(‘opt-disabled’));
-document.getElementById(`opt${q.ans}`).classList.add(‘opt-correct’);
-if (!correct) document.getElementById(`opt${i}`).classList.add(‘opt-wrong’);
+  // UI feedback
+  document.querySelectorAll('#opts button').forEach(btn => btn.classList.add('opt-disabled'));
+  document.getElementById(`opt${q.ans}`).classList.add('opt-correct');
+  if (!correct) document.getElementById(`opt${i}`).classList.add('opt-wrong');
 
-const fb = document.getElementById(‘feedback’);
-fb.innerHTML = `<div class="fade-in space-y-3"> <div class="${correct ? 'bg-green-50 border-green-300' : 'bg-red-50 border-red-300'} border-2 rounded-lg p-3"> <div class="font-bold ${correct ? 'text-green-700' : 'text-red-700'} mb-2 flex items-center gap-2"> ${correct ? '✓ 答對了' : '✗ 答錯'} ${!correct ?`<span class="text-xs font-normal text-stone-600">（已加入錯題本）</span>`: ''} </div> <div class="text-sm text-stone-700 leading-relaxed selectable"> <span class="font-bold">詳解：</span>${q.exp} </div> </div> <button onclick="nextQuestion()" class="opt-btn w-full navy text-white rounded-xl py-3 font-bold"> ${state.quizIndex < state.quizQueue.length - 1 ? '下一題 ›' : '完成本輪'} </button> </div>`;
-// scroll to feedback
-fb.scrollIntoView({ behavior: ‘smooth’, block: ‘nearest’ });
+  const fb = document.getElementById('feedback');
+  fb.innerHTML = `
+    <div class="fade-in space-y-3">
+      <div class="${correct ? 'bg-green-50 border-green-300' : 'bg-red-50 border-red-300'} border-2 rounded-lg p-3">
+        <div class="font-bold ${correct ? 'text-green-700' : 'text-red-700'} mb-2 flex items-center gap-2">
+          ${correct ? '✓ 答對了' : '✗ 答錯'}
+          ${!correct ? `<span class="text-xs font-normal text-stone-600">（已加入錯題本）</span>` : ''}
+        </div>
+        <div class="text-sm text-stone-700 leading-relaxed selectable">
+          <span class="font-bold">詳解：</span>${q.exp}
+        </div>
+      </div>
+      <button onclick="nextQuestion()" class="opt-btn w-full navy text-white rounded-xl py-3 font-bold">
+        ${state.quizIndex < state.quizQueue.length - 1 ? '下一題 ›' : '完成本輪'}
+      </button>
+    </div>
+  `;
+  // scroll to feedback
+  fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function nextQuestion() {
-state.quizIndex++;
-state.selected = null;
-state.answered = false;
-render();
+  state.quizIndex++;
+  state.selected = null;
+  state.answered = false;
+  render();
 }
 
-// ––––– FLASHCARD –––––
+// ---------- FLASHCARD ----------
 function startFlashcard() {
-state.fcIndex = 0;
-state.fcShowBack = false;
-state.fcCat = ‘all’;
-state.view = ‘flashcard’;
-render();
+  state.fcIndex = 0;
+  state.fcShowBack = false;
+  state.fcCat = 'all';
+  state.view = 'flashcard';
+  render();
 }
 
 function getFilteredCards() {
-return state.fcCat === ‘all’ ? FLASHCARDS : FLASHCARDS.filter(c => c.cat === state.fcCat);
+  return state.fcCat === 'all' ? FLASHCARDS : FLASHCARDS.filter(c => c.cat === state.fcCat);
 }
 
 function renderFlashcard(app) {
-const cards = getFilteredCards();
-const cats = [‘all’, …new Set(FLASHCARDS.map(c => c.cat))];
-if (cards.length === 0) {
-state.fcCat = ‘all’;
-render();
-return;
-}
-if (state.fcIndex >= cards.length) state.fcIndex = 0;
-const card = cards[state.fcIndex];
+  const cards = getFilteredCards();
+  const cats = ['all', ...new Set(FLASHCARDS.map(c => c.cat))];
+  if (cards.length === 0) {
+    state.fcCat = 'all';
+    render();
+    return;
+  }
+  if (state.fcIndex >= cards.length) state.fcIndex = 0;
+  const card = cards[state.fcIndex];
 
-app.innerHTML = `${topBar('閃卡模式')} <div class="p-4 fade-in"> <div class="flex gap-2 flex-wrap mb-4"> ${cats.map(c =>`
-<button onclick="setFcCat('${c}')" class="opt-btn px-3 py-1 rounded-lg text-xs font-semibold ${state.fcCat === c ? 'navy text-white' : 'bg-stone-100 text-stone-600'}">
-${c === ‘all’ ? ‘全部’ : c}
-</button>
-`).join('')} </div> <div class="text-center text-sm text-stone-500 mb-2">${state.fcIndex + 1} / ${cards.length}</div> <div onclick="flipCard()" class="bg-white rounded-2xl shadow-lg p-8 min-h-card flex flex-col items-center justify-center text-center cursor-pointer mb-4 border-2 ${state.fcShowBack ? 'border-yellow-400' : 'border-stone-200'}"> <div class="text-xs text-stone-400 mb-3 uppercase tracking-wider">${state.fcShowBack ? '答案' : '題目'}</div> <div class="text-xl font-bold ${state.fcShowBack ? 'gold-text' : 'navy-text'} leading-relaxed selectable"> ${state.fcShowBack ? card.b : card.f} </div> <div class="text-xs text-stone-400 mt-4">${state.fcShowBack ? '點卡片返回題目' : '點卡片看答案'}</div> </div> <div class="grid grid-cols-2 gap-3"> <button onclick="prevCard()" class="opt-btn bg-white border-2 border-stone-200 rounded-xl py-3 font-bold text-stone-700">‹ 上一張</button> <button onclick="nextCard()" class="opt-btn navy text-white rounded-xl py-3 font-bold">下一張 ›</button> </div> </div> `;
+  app.innerHTML = `
+    ${topBar('閃卡模式')}
+    <div class="p-4 fade-in">
+      <div class="flex gap-2 flex-wrap mb-4">
+        ${cats.map(c => `
+          <button onclick="setFcCat('${c}')" class="opt-btn px-3 py-1 rounded-lg text-xs font-semibold ${state.fcCat === c ? 'navy text-white' : 'bg-stone-100 text-stone-600'}">
+            ${c === 'all' ? '全部' : c}
+          </button>
+        `).join('')}
+      </div>
+      <div class="text-center text-sm text-stone-500 mb-2">${state.fcIndex + 1} / ${cards.length}</div>
+      <div onclick="flipCard()" class="bg-white rounded-2xl shadow-lg p-8 min-h-card flex flex-col items-center justify-center text-center cursor-pointer mb-4 border-2 ${state.fcShowBack ? 'border-yellow-400' : 'border-stone-200'}">
+        <div class="text-xs text-stone-400 mb-3 uppercase tracking-wider">${state.fcShowBack ? '答案' : '題目'}</div>
+        <div class="text-xl font-bold ${state.fcShowBack ? 'gold-text' : 'navy-text'} leading-relaxed selectable">
+          ${state.fcShowBack ? card.b : card.f}
+        </div>
+        <div class="text-xs text-stone-400 mt-4">${state.fcShowBack ? '點卡片返回題目' : '點卡片看答案'}</div>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <button onclick="prevCard()" class="opt-btn bg-white border-2 border-stone-200 rounded-xl py-3 font-bold text-stone-700">‹ 上一張</button>
+        <button onclick="nextCard()" class="opt-btn navy text-white rounded-xl py-3 font-bold">下一張 ›</button>
+      </div>
+    </div>
+  `;
 }
 
 function setFcCat(c) {
-state.fcCat = c;
-state.fcIndex = 0;
-state.fcShowBack = false;
-render();
+  state.fcCat = c;
+  state.fcIndex = 0;
+  state.fcShowBack = false;
+  render();
 }
 
 function flipCard() {
-state.fcShowBack = !state.fcShowBack;
-render();
+  state.fcShowBack = !state.fcShowBack;
+  render();
 }
 
 function nextCard() {
-const cards = getFilteredCards();
-state.fcIndex = (state.fcIndex + 1) % cards.length;
-state.fcShowBack = false;
-render();
+  const cards = getFilteredCards();
+  state.fcIndex = (state.fcIndex + 1) % cards.length;
+  state.fcShowBack = false;
+  render();
 }
 
 function prevCard() {
-const cards = getFilteredCards();
-state.fcIndex = (state.fcIndex - 1 + cards.length) % cards.length;
-state.fcShowBack = false;
-render();
+  const cards = getFilteredCards();
+  state.fcIndex = (state.fcIndex - 1 + cards.length) % cards.length;
+  state.fcShowBack = false;
+  render();
 }
 
-// ––––– WRONG ANSWER BOOK –––––
+// ---------- WRONG ANSWER BOOK ----------
 function renderWrong(app) {
-const wrongQs = userData.wrongList.map(id => QUESTIONS.find(q => q.id === id)).filter(Boolean);
+  const wrongQs = userData.wrongList.map(id => QUESTIONS.find(q => q.id === id)).filter(Boolean);
 
-if (wrongQs.length === 0) {
-app.innerHTML = `${topBar('錯題本')} <div class="p-6 text-center"> <div class="text-6xl mb-4">📭</div> <div class="text-lg font-bold mb-2">錯題本是空的</div> <div class="text-sm text-stone-500 mb-6">先去刷題，答錯的會自動收進來</div> <button onclick="startQuiz()" class="opt-btn w-full navy text-white rounded-xl py-3 font-bold">開始刷題</button> </div>`;
-return;
-}
+  if (wrongQs.length === 0) {
+    app.innerHTML = `
+      ${topBar('錯題本')}
+      <div class="p-6 text-center">
+        <div class="text-6xl mb-4">📭</div>
+        <div class="text-lg font-bold mb-2">錯題本是空的</div>
+        <div class="text-sm text-stone-500 mb-6">先去刷題，答錯的會自動收進來</div>
+        <button onclick="startQuiz()" class="opt-btn w-full navy text-white rounded-xl py-3 font-bold">開始刷題</button>
+      </div>
+    `;
+    return;
+  }
 
-app.innerHTML = ` ${topBar(`錯題本（${wrongQs.length}）`)} <div class="p-4 space-y-3 fade-in"> <button onclick="redoAllWrong()" class="opt-btn w-full navy text-white rounded-xl py-3 font-bold">重做所有錯題</button> ${wrongQs.map(q => { const att = userData.attempts[q.id] || {}; const wrongTimes = (att.tries || 0) - (att.correct || 0); return `
-<div class="bg-white rounded-xl p-3 shadow-sm border-l-4 border-red-400">
-<div class="flex items-center gap-2 mb-2 flex-wrap">
-${tierBadge(q.tier)}
-<span class="badge bg-stone-200 text-stone-700">${q.subject}</span>
-<span class="badge bg-stone-200 text-stone-700">${q.topic}</span>
-<span class="badge bg-red-100 text-red-700">錯 ${wrongTimes} 次</span>
-</div>
-<div class="text-sm font-medium mb-2 leading-relaxed selectable">${q.q}</div>
-<div class="text-xs text-stone-500 mb-2 selectable">
-<span class="font-bold text-green-600">正解：(${String.fromCharCode(65+q.ans)}) ${q.opts[q.ans]}</span>
-</div>
-<div class="text-xs text-stone-600 mb-2 selectable">${q.exp}</div>
-<div class="flex gap-2">
-<button onclick="redoSingle('${q.id}')" class="opt-btn flex-1 bg-stone-100 text-stone-700 rounded-lg py-2 text-sm font-semibold">重做</button>
-<button onclick="markMastered('${q.id}')" class="opt-btn flex-1 bg-green-100 text-green-700 rounded-lg py-2 text-sm font-semibold">已掌握 ✓</button>
-</div>
-</div>
-`; }).join('')} </div> `;
+  app.innerHTML = `
+    ${topBar(`錯題本（${wrongQs.length}）`)}
+    <div class="p-4 space-y-3 fade-in">
+      <button onclick="redoAllWrong()" class="opt-btn w-full navy text-white rounded-xl py-3 font-bold">重做所有錯題</button>
+      ${wrongQs.map(q => {
+        const att = userData.attempts[q.id] || {};
+        const wrongTimes = (att.tries || 0) - (att.correct || 0);
+        return `
+        <div class="bg-white rounded-xl p-3 shadow-sm border-l-4 border-red-400">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            ${tierBadge(q.tier)}
+            <span class="badge bg-stone-200 text-stone-700">${q.subject}</span>
+            <span class="badge bg-stone-200 text-stone-700">${q.topic}</span>
+            <span class="badge bg-red-100 text-red-700">錯 ${wrongTimes} 次</span>
+          </div>
+          <div class="text-sm font-medium mb-2 leading-relaxed selectable">${q.q}</div>
+          <div class="text-xs text-stone-500 mb-2 selectable">
+            <span class="font-bold text-green-600">正解：(${String.fromCharCode(65+q.ans)}) ${q.opts[q.ans]}</span>
+          </div>
+          <div class="text-xs text-stone-600 mb-2 selectable">${q.exp}</div>
+          <div class="flex gap-2">
+            <button onclick="redoSingle('${q.id}')" class="opt-btn flex-1 bg-stone-100 text-stone-700 rounded-lg py-2 text-sm font-semibold">重做</button>
+            <button onclick="markMastered('${q.id}')" class="opt-btn flex-1 bg-green-100 text-green-700 rounded-lg py-2 text-sm font-semibold">已掌握 ✓</button>
+          </div>
+        </div>
+        `;
+      }).join('')}
+    </div>
+  `;
 }
 
 function redoAllWrong() {
-state.quizQueue = shuffle(userData.wrongList.map(id => QUESTIONS.find(q => q.id === id)).filter(Boolean));
-state.quizIndex = 0;
-state.selected = null;
-state.answered = false;
-userData.currentSession = { answered: 0, correct: 0 };
-state.view = ‘quiz’;
-render();
+  state.quizQueue = shuffle(userData.wrongList.map(id => QUESTIONS.find(q => q.id === id)).filter(Boolean));
+  state.quizIndex = 0;
+  state.selected = null;
+  state.answered = false;
+  userData.currentSession = { answered: 0, correct: 0 };
+  state.view = 'quiz';
+  render();
 }
 
 function redoSingle(qid) {
-const q = QUESTIONS.find(x => x.id === qid);
-if (!q) return;
-state.quizQueue = [q];
-state.quizIndex = 0;
-state.selected = null;
-state.answered = false;
-userData.currentSession = { answered: 0, correct: 0 };
-state.view = ‘quiz’;
-render();
+  const q = QUESTIONS.find(x => x.id === qid);
+  if (!q) return;
+  state.quizQueue = [q];
+  state.quizIndex = 0;
+  state.selected = null;
+  state.answered = false;
+  userData.currentSession = { answered: 0, correct: 0 };
+  state.view = 'quiz';
+  render();
 }
 
 async function markMastered(qid) {
-userData.wrongList = userData.wrongList.filter(id => id !== qid);
-if (!userData.mastered.includes(qid)) userData.mastered.push(qid);
-await saveData();
-render();
+  userData.wrongList = userData.wrongList.filter(id => id !== qid);
+  if (!userData.mastered.includes(qid)) userData.mastered.push(qid);
+  await saveData();
+  render();
 }
 
-// ––––– STATS –––––
+// ---------- STATS ----------
 function renderStats(app) {
-const s = userData.stats;
-const acc = s.allTimeAnswered > 0 ? Math.round((s.allTimeCorrect / s.allTimeAnswered) * 100) : 0;
-const todayAcc = s.todayAnswered > 0 ? Math.round((s.todayCorrect / s.todayAnswered) * 100) : 0;
+  const s = userData.stats;
+  const acc = s.allTimeAnswered > 0 ? Math.round((s.allTimeCorrect / s.allTimeAnswered) * 100) : 0;
+  const todayAcc = s.todayAnswered > 0 ? Math.round((s.todayCorrect / s.todayAnswered) * 100) : 0;
 
-// by subject
-const bySubj = {};
-Object.entries(userData.attempts).forEach(([qid, att]) => {
-const q = QUESTIONS.find(x => x.id === qid);
-if (!q) return;
-if (!bySubj[q.subject]) bySubj[q.subject] = { tries: 0, correct: 0 };
-bySubj[q.subject].tries += att.tries;
-bySubj[q.subject].correct += att.correct;
-});
+  // by subject
+  const bySubj = {};
+  Object.entries(userData.attempts).forEach(([qid, att]) => {
+    const q = QUESTIONS.find(x => x.id === qid);
+    if (!q) return;
+    if (!bySubj[q.subject]) bySubj[q.subject] = { tries: 0, correct: 0 };
+    bySubj[q.subject].tries += att.tries;
+    bySubj[q.subject].correct += att.correct;
+  });
 
-// by tier
-const byTier = {};
-Object.entries(userData.attempts).forEach(([qid, att]) => {
-const q = QUESTIONS.find(x => x.id === qid);
-if (!q) return;
-if (!byTier[q.tier]) byTier[q.tier] = { tries: 0, correct: 0 };
-byTier[q.tier].tries += att.tries;
-byTier[q.tier].correct += att.correct;
-});
+  // by tier
+  const byTier = {};
+  Object.entries(userData.attempts).forEach(([qid, att]) => {
+    const q = QUESTIONS.find(x => x.id === qid);
+    if (!q) return;
+    if (!byTier[q.tier]) byTier[q.tier] = { tries: 0, correct: 0 };
+    byTier[q.tier].tries += att.tries;
+    byTier[q.tier].correct += att.correct;
+  });
 
-app.innerHTML = `
-${topBar(‘學習統計’)}
-<div class="p-4 space-y-4 fade-in">
-<div class="bg-white rounded-xl p-4 shadow-sm">
-<div class="text-sm text-stone-500 mb-1">總正確率</div>
-<div class="text-4xl font-bold ${acc >= 70 ? 'text-green-600' : acc >= 50 ? 'text-orange-500' : 'text-red-500'}">${acc}%</div>
-<div class="text-sm text-stone-600 mt-1">${s.allTimeCorrect} 對 / ${s.allTimeAnswered} 題</div>
-</div>
+  app.innerHTML = `
+    ${topBar('學習統計')}
+    <div class="p-4 space-y-4 fade-in">
+      <div class="bg-white rounded-xl p-4 shadow-sm">
+        <div class="text-sm text-stone-500 mb-1">總正確率</div>
+        <div class="text-4xl font-bold ${acc >= 70 ? 'text-green-600' : acc >= 50 ? 'text-orange-500' : 'text-red-500'}">${acc}%</div>
+        <div class="text-sm text-stone-600 mt-1">${s.allTimeCorrect} 對 / ${s.allTimeAnswered} 題</div>
+      </div>
 
-```
-  <div class="grid grid-cols-2 gap-3">
-    <div class="bg-white rounded-xl p-4 shadow-sm">
-      <div class="text-xs text-stone-500">今日</div>
-      <div class="text-2xl font-bold navy-text">${s.todayAnswered}</div>
-      <div class="text-xs text-stone-500">正確率 ${todayAcc}%</div>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="bg-white rounded-xl p-4 shadow-sm">
+          <div class="text-xs text-stone-500">今日</div>
+          <div class="text-2xl font-bold navy-text">${s.todayAnswered}</div>
+          <div class="text-xs text-stone-500">正確率 ${todayAcc}%</div>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow-sm">
+          <div class="text-xs text-stone-500">已掌握</div>
+          <div class="text-2xl font-bold text-green-600">${userData.mastered.length}</div>
+          <div class="text-xs text-stone-500">題</div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-4 shadow-sm">
+        <div class="font-bold mb-3 navy-text">分科正確率</div>
+        ${Object.entries(bySubj).length === 0 ? '<div class="text-sm text-stone-400">尚無資料</div>' :
+          Object.entries(bySubj).map(([subj, data]) => {
+            const pct = data.tries > 0 ? Math.round((data.correct / data.tries) * 100) : 0;
+            return `
+              <div class="mb-3 last:mb-0">
+                <div class="flex justify-between text-sm mb-1">
+                  <span class="font-semibold">${subj}</span>
+                  <span class="text-stone-500">${data.correct}/${data.tries} = ${pct}%</span>
+                </div>
+                <div class="h-2 bg-stone-100 rounded-full overflow-hidden">
+                  <div class="h-full ${pct >= 70 ? 'bg-green-500' : pct >= 50 ? 'bg-orange-400' : 'bg-red-400'} progress-bar" style="width:${pct}%"></div>
+                </div>
+              </div>
+            `;
+          }).join('')
+        }
+      </div>
+
+      <div class="bg-white rounded-xl p-4 shadow-sm">
+        <div class="font-bold mb-3 navy-text">分等級正確率</div>
+        ${Object.entries(byTier).length === 0 ? '<div class="text-sm text-stone-400">尚無資料</div>' :
+          Object.entries(byTier).sort((a,b) => ['S','A','B','C'].indexOf(a[0]) - ['S','A','B','C'].indexOf(b[0])).map(([tier, data]) => {
+            const pct = data.tries > 0 ? Math.round((data.correct / data.tries) * 100) : 0;
+            return `
+              <div class="mb-3 last:mb-0">
+                <div class="flex justify-between text-sm mb-1">
+                  <span class="font-semibold">${tier} 級</span>
+                  <span class="text-stone-500">${data.correct}/${data.tries} = ${pct}%</span>
+                </div>
+                <div class="h-2 bg-stone-100 rounded-full overflow-hidden">
+                  <div class="h-full ${pct >= 70 ? 'bg-green-500' : pct >= 50 ? 'bg-orange-400' : 'bg-red-400'} progress-bar" style="width:${pct}%"></div>
+                </div>
+              </div>
+            `;
+          }).join('')
+        }
+      </div>
     </div>
-    <div class="bg-white rounded-xl p-4 shadow-sm">
-      <div class="text-xs text-stone-500">已掌握</div>
-      <div class="text-2xl font-bold text-green-600">${userData.mastered.length}</div>
-      <div class="text-xs text-stone-500">題</div>
-    </div>
-  </div>
-
-  <div class="bg-white rounded-xl p-4 shadow-sm">
-    <div class="font-bold mb-3 navy-text">分科正確率</div>
-    ${Object.entries(bySubj).length === 0 ? '<div class="text-sm text-stone-400">尚無資料</div>' :
-      Object.entries(bySubj).map(([subj, data]) => {
-        const pct = data.tries > 0 ? Math.round((data.correct / data.tries) * 100) : 0;
-        return `
-          <div class="mb-3 last:mb-0">
-            <div class="flex justify-between text-sm mb-1">
-              <span class="font-semibold">${subj}</span>
-              <span class="text-stone-500">${data.correct}/${data.tries} = ${pct}%</span>
-            </div>
-            <div class="h-2 bg-stone-100 rounded-full overflow-hidden">
-              <div class="h-full ${pct >= 70 ? 'bg-green-500' : pct >= 50 ? 'bg-orange-400' : 'bg-red-400'} progress-bar" style="width:${pct}%"></div>
-            </div>
-          </div>
-        `;
-      }).join('')
-    }
-  </div>
-
-  <div class="bg-white rounded-xl p-4 shadow-sm">
-    <div class="font-bold mb-3 navy-text">分等級正確率</div>
-    ${Object.entries(byTier).length === 0 ? '<div class="text-sm text-stone-400">尚無資料</div>' :
-      Object.entries(byTier).sort((a,b) => ['S','A','B','C'].indexOf(a[0]) - ['S','A','B','C'].indexOf(b[0])).map(([tier, data]) => {
-        const pct = data.tries > 0 ? Math.round((data.correct / data.tries) * 100) : 0;
-        return `
-          <div class="mb-3 last:mb-0">
-            <div class="flex justify-between text-sm mb-1">
-              <span class="font-semibold">${tier} 級</span>
-              <span class="text-stone-500">${data.correct}/${data.tries} = ${pct}%</span>
-            </div>
-            <div class="h-2 bg-stone-100 rounded-full overflow-hidden">
-              <div class="h-full ${pct >= 70 ? 'bg-green-500' : pct >= 50 ? 'bg-orange-400' : 'bg-red-400'} progress-bar" style="width:${pct}%"></div>
-            </div>
-          </div>
-        `;
-      }).join('')
-    }
-  </div>
-</div>
-```
-
-`;
+  `;
 }
 
 // ============ INIT ============
 (async () => {
-await loadData();
-render();
+  await loadData();
+  render();
 })();
 </script>
 
