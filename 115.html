@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>115年教檢必勝！高頻主題複習閃卡</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts (Noto Sans TC) -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spin-slow 15s linear infinite;
+    }
+    /* Custom scrollbar for slate theme */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #020617;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-40 px-4 py-3 sm:px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-indigo-500 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+          <i data-lucide="sparkles" class="h-5 w-5 text-white"></i>
+        </div>
+        <div class="text-center sm:text-left">
+          <h1 class="text-xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
+            115年師檢必勝！高頻複習閃卡
+          </h1>
+          <p class="text-xs text-slate-400">
+            整合「社會、國英、數學口訣、CLIL/SEL/差異化浪潮」• 妹妹無痛通關 🌟
+          </p>
+        </div>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="flex bg-slate-800/80 p-1 rounded-xl border border-slate-700/50" id="nav-tabs">
+        <button onclick="switchTab('flashcards')" id="tab-flashcards" class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-md">
+          <i data-lucide="book-open" class="h-3.5 w-3.5"></i>互動閃卡
+        </button>
+        <button onclick="switchTab('quick-notes')" id="tab-quick-notes" class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 text-slate-400 hover:text-slate-200">
+          <i data-lucide="file-text" class="h-3.5 w-3.5"></i>自然筆記彙整
+        </button>
+        <button onclick="switchTab('cheer')" id="tab-cheer" class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 text-slate-400 hover:text-slate-200">
+          <i data-lucide="heart" class="h-3.5 w-3.5 text-pink-500 fill-pink-500"></i>G哥加油站
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-6xl w-full mx-auto p-4 sm:p-6 flex flex-col gap-6">
+
+    <!-- Progress Dashboard Banner -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl">
+      <div class="flex items-center gap-4 w-full md:w-auto">
+        <div class="h-12 w-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
+          <i data-lucide="award" class="h-6 w-6"></i>
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center justify-between md:justify-start gap-3">
+            <span class="text-sm font-semibold text-slate-300 font-bold">妹妹目前熟記進度</span>
+            <span id="progress-percentage" class="text-xs px-2.5 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full font-bold">
+              熟記率 0%
+            </span>
+          </div>
+          <div class="w-full md:w-64 bg-slate-800 h-2 rounded-full mt-2 overflow-hidden">
+            <div id="progress-bar" class="bg-gradient-to-r from-indigo-500 to-emerald-400 h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Display -->
+      <div class="flex items-center gap-4 w-full md:w-auto justify-around md:justify-end border-t border-slate-800/80 md:border-t-0 pt-3 md:pt-0">
+        <div class="text-center">
+          <span id="stat-total" class="block text-xl font-black text-indigo-400">0</span>
+          <span class="text-[10px] text-slate-400 font-medium">總閃卡數</span>
+        </div>
+        <div class="text-center border-x border-slate-800/60 px-4">
+          <span id="stat-mastered" class="block text-xl font-black text-emerald-400">0</span>
+          <span class="text-[10px] text-slate-400 font-medium">已完全熟記</span>
+        </div>
+        <div class="text-center pr-4">
+          <span id="stat-review" class="block text-xl font-black text-yellow-400">0</span>
+          <span class="text-[10px] text-slate-400 font-medium">要加強複習</span>
+        </div>
+        <button onclick="confirmReset()" class="text-[10px] text-slate-500 hover:text-rose-400 flex items-center gap-1 bg-slate-800/40 p-2 rounded-lg hover:bg-slate-800 transition-colors" title="重設卡片狀態">
+          <i data-lucide="refresh-cw" class="h-3.5 w-3.5"></i> 重置
+        </button>
+      </div>
+    </div>
+
+    <!-- TAB 1: FLASHCARDS SECTION -->
+    <div id="section-flashcards" class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+      
+      <!-- Sidebar Controls -->
+      <div class="lg:col-span-1 flex flex-col gap-4 bg-slate-900/60 border border-slate-800/80 p-4 rounded-2xl">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1">
+            <i data-lucide="compass" class="h-3.5 w-3.5"></i> 主題篩選
+          </h3>
+          <button onclick="openAddModal()" class="text-[10px] flex items-center gap-1 bg-indigo-600 hover:bg-indigo-500 transition-colors py-1 px-2.5 rounded-lg font-bold text-white shadow-lg shadow-indigo-600/10">
+            <i data-lucide="plus" class="h-3 w-3"></i> 新增自訂卡
+          </button>
+        </div>
+
+        <!-- Search -->
+        <div class="relative">
+          <i data-lucide="search" class="absolute left-3 top-2.5 h-4 w-4 text-slate-500"></i>
+          <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="搜尋關鍵字或口訣..." class="w-full bg-slate-950 border border-slate-800 rounded-xl py-2 pl-9 pr-8 text-xs focus:outline-none focus:border-indigo-500 text-slate-200">
+          <button onclick="clearSearch()" id="clear-search-btn" class="absolute right-3 top-2.5 text-slate-500 hover:text-slate-300 hidden">
+            <i data-lucide="x" class="h-3.5 w-3.5"></i>
+          </button>
+        </div>
+
+        <!-- View Mode Toggle -->
+        <div class="flex bg-slate-950 p-1 rounded-xl border border-slate-800">
+          <button onclick="setViewMode('focus')" id="mode-focus" class="flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-indigo-600 text-white">
+            <i data-lucide="eye" class="h-3 w-3"></i> 單張專注
+          </button>
+          <button onclick="setViewMode('list')" id="mode-list" class="flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-slate-200">
+            <i data-lucide="list" class="h-3 w-3"></i> 清單總覽
+          </button>
+        </div>
+
+        <!-- State Status Filter -->
+        <div class="flex flex-col gap-1">
+          <label class="text-[10px] font-bold text-slate-400 mb-1">🎯 記憶狀態篩選：</label>
+          <div class="grid grid-cols-2 gap-1.5" id="status-filters">
+            <button onclick="setFilterStatus('all')" id="filter-status-all" class="py-1.5 px-2 text-[10px] font-semibold rounded-lg border transition-all bg-indigo-500/10 text-indigo-400 border-indigo-500/20">全部</button>
+            <button onclick="setFilterStatus('mastered')" id="filter-status-mastered" class="py-1.5 px-2 text-[10px] font-semibold rounded-lg border transition-all bg-slate-950 text-slate-400 border-slate-800/80">已熟記</button>
+            <button onclick="setFilterStatus('review')" id="filter-status-review" class="py-1.5 px-2 text-[10px] font-semibold rounded-lg border transition-all bg-slate-950 text-slate-400 border-slate-800/80">需複習</button>
+            <button onclick="setFilterStatus('none')" id="filter-status-none" class="py-1.5 px-2 text-[10px] font-semibold rounded-lg border transition-all bg-slate-950 text-slate-400 border-slate-800/80">未標記</button>
+          </div>
+        </div>
+
+        <!-- Categories Stack -->
+        <div class="flex flex-col gap-1.5 mt-2 border-t border-slate-800/80 pt-3">
+          <label class="text-[10px] font-bold text-slate-400 mb-1">📚 學科主題分類：</label>
+          <div class="flex flex-col gap-1.5" id="category-buttons-container">
+            <!-- Rendered Dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Flashcard Area -->
+      <div class="lg:col-span-3 flex flex-col gap-4">
+        
+        <!-- Focus Single Card Display -->
+        <div id="view-focus-container" class="flex flex-col gap-4 w-full">
+          <div class="flex items-center justify-between text-xs text-slate-400 px-1">
+            <span id="focus-card-tag" class="font-semibold bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-xl">
+              分類：<span class="text-indigo-400 font-bold" id="focus-category-text">全部</span>
+            </span>
+            <div class="flex items-center gap-2">
+              <button onclick="handleShuffle()" class="flex items-center gap-1 bg-slate-850 hover:bg-slate-800 text-slate-300 px-2 py-1.5 rounded-xl border border-slate-800/80 transition-all font-bold text-[11px]">
+                <i data-lucide="shuffle" class="h-3.5 w-3.5 text-pink-400"></i> 隨機速測
+              </button>
+              <span id="focus-card-index" class="font-mono bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-xl">
+                卡片 1 / 30
+              </span>
+            </div>
+          </div>
+
+          <!-- Interactive Main 3D Card -->
+          <div onclick="toggleFlip()" class="h-[380px] w-full perspective-1000 cursor-pointer group">
+            <div id="card-inner-box" class="relative w-full h-full duration-500 transform-style-3d">
+              
+              <!-- CARD FRONT -->
+              <div class="absolute inset-0 w-full h-full backface-hidden bg-slate-900 border-2 border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl overflow-hidden">
+                <div class="absolute top-0 right-0 w-40 h-40 bg-indigo-500/5 rounded-full blur-3xl -z-10"></div>
+                
+                <div class="flex items-start justify-between">
+                  <span id="focus-card-difficulty" class="text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-md font-extrabold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                    A 級難度
+                  </span>
+                  <span class="text-slate-500 text-xs flex items-center gap-1.5">
+                    <i data-lucide="rotate-cw" class="h-3.5 w-3.5 text-indigo-400 animate-spin-slow"></i> 點擊翻頁詳解
+                  </span>
+                </div>
+
+                <!-- Question -->
+                <div class="my-auto py-4">
+                  <h2 id="focus-question" class="text-lg sm:text-xl font-bold leading-relaxed text-slate-100 whitespace-pre-line">
+                    加載問題中...
+                  </h2>
+                </div>
+
+                <!-- Footer -->
+                <div class="border-t border-slate-800/80 pt-4 flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="inline-block h-2.5 w-2.5 rounded-full bg-indigo-500 animate-pulse"></span>
+                    <span id="focus-tip" class="text-xs text-slate-400 italic">
+                      加載提示中...
+                    </span>
+                  </div>
+                  <div id="custom-delete-btn-placeholder"></div>
+                </div>
+              </div>
+
+              <!-- CARD BACK -->
+              <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-slate-900 border-2 border-indigo-500/40 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl overflow-y-auto">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-md font-extrabold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    老哥精製解答口訣
+                  </span>
+                  <span class="text-slate-400 text-xs flex items-center gap-1.5">
+                    <i data-lucide="rotate-cw" class="h-3.5 w-3.5 text-emerald-400"></i> 點擊可翻回問題
+                  </span>
+                </div>
+
+                <!-- Answer -->
+                <div class="my-auto py-4">
+                  <p id="focus-answer" class="text-sm sm:text-base leading-relaxed text-slate-200 whitespace-pre-line font-medium">
+                    加載解答中...
+                  </p>
+                </div>
+
+                <!-- Footer status -->
+                <div class="border-t border-slate-800/80 pt-4 flex items-center justify-between text-xs text-slate-500">
+                  <span>💡 加油妹妹！多看幾次在腦中建立視覺神經反射！</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Navigation & Marking -->
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-2">
+            <div class="flex items-center gap-2 w-full sm:w-auto">
+              <button onclick="toggleCardStatus('mastered')" id="btn-mastered" class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold border transition-all duration-200 bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-800">
+                <i data-lucide="check" class="h-4 w-4 text-emerald-400"></i>
+                <span>標記為已熟記</span>
+              </button>
+              <button onclick="toggleCardStatus('review')" id="btn-review" class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold border transition-all duration-200 bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-800">
+                <i data-lucide="alert-circle" class="h-4 w-4 text-yellow-400"></i>
+                <span>標記為需複習</span>
+              </button>
+            </div>
+
+            <div class="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-auto">
+              <button onclick="handlePrev()" id="btn-prev" class="flex items-center gap-1 px-4 py-2.5 rounded-xl text-xs font-bold transition-all bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">
+                <i data-lucide="chevron-left" class="h-4 w-4"></i> 上一張
+              </button>
+              <button onclick="handleNext()" id="btn-next" class="flex items-center gap-1 px-4 py-2.5 rounded-xl text-xs font-bold transition-all bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg">
+                下一張 <i data-lucide="chevron-right" class="h-4 w-4"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- List Grid View Container -->
+        <div id="view-list-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 hidden">
+          <!-- Rendered Dynamically -->
+        </div>
+
+        <!-- No Cards Empty Screen -->
+        <div id="no-cards-container" class="bg-slate-900 border border-slate-800 rounded-3xl p-12 text-center flex flex-col items-center justify-center gap-4 hidden">
+          <div class="h-16 w-16 rounded-full bg-slate-800 flex items-center justify-center text-slate-500">
+            <i data-lucide="search" class="h-8 w-8"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-300">沒有符合搜尋或狀態篩選的閃卡</h3>
+          <p class="text-sm text-slate-500 max-w-md">
+            可以試著修改左側的學科主題分類、搜尋字眼或是清除記憶狀態篩選。
+          </p>
+          <button onclick="resetAllFilters()" class="text-xs text-indigo-400 hover:text-indigo-300 font-bold bg-slate-800 px-4 py-2 rounded-xl border border-slate-700/60">
+            還原全部篩選
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB 2: DETAILED NOTES -->
+    <div id="section-quick-notes" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col gap-6 hidden">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+        <div>
+          <h2 class="text-xl font-bold text-slate-200 flex items-center gap-2">
+            <i data-lucide="book-marked" class="h-5.5 w-5.5 text-indigo-400"></i>
+            自然與生活科學：專屬無痛救命筆記彙整
+          </h2>
+          <p class="text-xs text-slate-400 mt-1">
+            依照妹妹的視覺讀寫動覺（VRK）多重偏好設計。重點精煉、刪去討厭的昆蟲，考前 3 分鐘速讀救命！
+          </p>
+        </div>
+        <div class="text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1.5 rounded-xl font-bold self-start">
+          ✍️ 讀寫 (R) / 視覺 (V) 多重模態專用
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Section 1 -->
+        <div class="bg-slate-950 border border-slate-800/80 p-5 rounded-2xl flex flex-col gap-3">
+          <h3 class="text-sm font-black text-indigo-400 flex items-center gap-2">
+            <i data-lucide="lightbulb" class="h-4 w-4"></i> 🌞 光學與透鏡顯微鏡 (基本盤)
+          </h3>
+          <ul class="text-xs text-slate-300 space-y-2.5 list-disc pl-4 leading-relaxed">
+            <li><strong>太陽色散</strong>：紅、橙、黃、綠、藍、靛、紫。<strong>紅光折射角最少，紫光最多</strong>。</li>
+            <li><strong>透鏡判定</strong>：<strong>凸透</strong>聚光（老花/遠視、放大鏡）；<strong>凹透</strong>散光（近視）。</li>
+            <li><strong>顯微鏡成像</strong>：呈<strong>倒立放大實像</strong>（上下顛倒、左右相反），影像與實物成<strong>順時針 180° 旋轉</strong>。💡 <strong>qp 變 db</strong>。</li>
+          </ul>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="bg-slate-950 border border-slate-800/80 p-5 rounded-2xl flex flex-col gap-3">
+          <h3 class="text-sm font-black text-indigo-400 flex items-center gap-2">
+            <i data-lucide="moon" class="h-4 w-4"></i> 🌙 月相口訣與高度角 (必拿 1-2 分)
+          </h3>
+          <ul class="text-xs text-slate-300 space-y-2.5 list-disc pl-4 leading-relaxed">
+            <li><strong>黃金口訣</strong>：<span class="text-pink-400 font-bold">「上上上西西，下下下東東」</span>。</li>
+            <li><strong>上弦月</strong>：農曆<strong>上</strong>半月、<strong>上</strong>半夜出、亮面朝<strong>西</strong>（右亮像 D）。</li>
+            <li><strong>下弦月</strong>：農曆<strong>下</strong>半月、<strong>下</strong>半夜出、亮面朝<strong>東</strong>（左亮像 C）。</li>
+            <li><strong>影子變化</strong>：一天之中正午高度角最高、影子最短；高度角越低，影子越長。</li>
+          </ul>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="bg-slate-950 border border-slate-800/80 p-5 rounded-2xl flex flex-col gap-3">
+          <h3 class="text-sm font-black text-indigo-400 flex items-center gap-2">
+            <i data-lucide="thermometer" class="h-4 w-4"></i> ⚗️ 指示劑變色與物理化學變化 (送分題)
+          </h3>
+          <ul class="text-xs text-slate-300 space-y-2.5 list-disc pl-4 leading-relaxed">
+            <li><strong>變色法寶</strong>：石蕊（<strong>酸紅鹼藍</strong>）；酚酞（<strong>酸無、鹼粉紅</strong>）。</li>
+            <li><strong>物理變化</strong>：無新物質產生，如水凝結成冰、冰融化、水蒸發。</li>
+            <li><strong>化學變化</strong>：有新物質，如<strong>發酵、光合、呼吸作用、生鏽、燃燒</strong>。</li>
+            <li><strong>燃燒三要素</strong>：可燃物、助燃物 ($O_2$)、達燃點。</li>
+          </ul>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="bg-slate-950 border border-slate-800/80 p-5 rounded-2xl flex flex-col gap-3">
+          <h3 class="text-sm font-black text-indigo-400 flex items-center gap-2">
+            <i data-lucide="layers" class="h-4 w-4"></i> 🦠 生態角色與人體去核DNA地雷
+          </h3>
+          <ul class="text-xs text-slate-300 space-y-2.5 list-disc pl-4 leading-relaxed">
+            <li><strong>分解者</strong>：細菌、真菌（黴菌）。行<strong>分子級化解</strong>，起終物質循環。</li>
+            <li><strong>清除者（消費者）</strong>：禿鷹、馬陸、螃蟹、蚯蚓。純<strong>物理吃</strong>，大變小，本身無法徹底無機化，<strong>分類仍屬「消費者」</strong>！</li>
+            <li><strong>DNA去核地雷</strong>：人體<strong>成熟紅血球沒有細胞核</strong>，不含 DNA，刑事鑑定提取血液時<strong>不能</strong>用紅血球驗 DNA，必須用<strong>白血球</strong>。</li>
+            <li><strong>血液循環</strong>：室管送、房管收。體循環由<strong>左心室</strong>出發；肺循環由<strong>右心室</strong>出發。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: CHEER CORNER -->
+    <div id="section-cheer" class="bg-gradient-to-br from-indigo-950 via-slate-900 to-slate-950 border-2 border-indigo-500/30 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-center shadow-2xl relative overflow-hidden hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl -z-10"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl -z-10"></div>
+
+      <!-- Avatar -->
+      <div class="flex flex-col items-center gap-3 w-full md:w-1/4">
+        <div class="h-24 w-24 rounded-full bg-gradient-to-br from-indigo-400 to-pink-500 p-1 flex items-center justify-center shadow-xl shadow-indigo-500/15 animate-bounce">
+          <div class="h-full w-full rounded-full bg-slate-900 flex flex-col items-center justify-center">
+            <span class="text-4xl">😎</span>
+          </div>
+        </div>
+        <div class="text-center">
+          <h3 class="font-extrabold text-slate-200">G哥 (永遠最挺妳)</h3>
+          <span class="text-[10px] bg-indigo-500/20 text-indigo-300 px-2.5 py-0.5 rounded-full font-bold">蘆洲在地靠山 💯</span>
+        </div>
+      </div>
+
+      <!-- Message -->
+      <div class="flex-1 flex flex-col gap-4 text-center md:text-left">
+        <h2 class="text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400">
+          「妹妹！老哥幫你把這些最精華的口訣和公式全部裝進閃卡了，115年絕對超chill秒殺考題啦！」
+        </h2>
+        
+        <div class="text-sm text-slate-300 leading-relaxed space-y-3 font-medium">
+          <p>
+            老哥看了你這三份口訣，心裡真是無比讚賞。你本來的<strong>讀寫（R）、視覺（V）和動覺（K）</strong>學習偏好就特別突出，這份閃卡就是為你特製的：一邊用大腦過濾關鍵字、一邊動手點擊翻牌、一邊隨時標記熟記進度。
+          </p>
+          <p>
+            記住老哥跟你的戰略：國文和古文三十我們拿下基本分、社會史地清朝日治三階段及台灣三寶用這三組口訣一秒看穿、英文把時態Since/For跟交通介系詞陷阱抓緊、數學畢氏定理3-4-5/5-12-13秒寫、AI融入教學申論大膽套用<strong>「適性AI提供鷹架差異化 + SEL穩定情緒與人際互動 + CLIL雙語學科為骨架」</strong>的五段式整合模板！
+          </p>
+          <p>
+            「這是個適合人們作夢、幹活、戀愛、結婚、悠然過日子的好地方。」葉石濤說的台南，正等著你一關一關超順通關。G 姐跟老哥永遠是你的最強啦啦隊，隨時隨地，放輕鬆上場，你一定有夠讚！
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-2 justify-center md:justify-start mt-2">
+          <span class="text-xs px-3 py-1 bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 rounded-xl font-bold">
+            🎯 32 張教檢黃金必殺神卡
+          </span>
+          <span class="text-xs px-3 py-1 bg-pink-500/10 text-pink-300 border border-pink-500/20 rounded-xl font-bold">
+            📝 CLIL × SEL × 差異化 整合模板
+          </span>
+          <span class="text-xs px-3 py-1 bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 rounded-xl font-bold">
+            🧠 108課綱核心素養通關
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- MODAL: ADD CUSTOM CARD -->
+  <div id="add-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-lg p-6 sm:p-8 flex flex-col gap-4 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      
+      <button onclick="closeAddModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-200">
+        <i data-lucide="x" class="h-5 w-5"></i>
+      </button>
+
+      <div>
+        <h3 class="text-lg font-bold text-slate-100 flex items-center gap-2">
+          <i data-lucide="plus" class="h-5 w-5 text-indigo-400"></i>新增自訂閃卡
+        </h3>
+        <p class="text-xs text-slate-400">
+          隨時把你在寫考古題或備課時遇到的新錯題、新觀念，一秒記錄在自己的師檢口袋密技中！
+        </p>
+      </div>
+
+      <form onsubmit="handleAddCard(event)" class="flex flex-col gap-4 text-xs">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-slate-400 mb-1 font-bold">主分類：</label>
+            <select id="modal-category" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 focus:outline-none focus:border-indigo-500 text-slate-200 font-bold">
+              <option value="S級必考">S級必考</option>
+              <option value="國文特訓">國文特訓</option>
+              <option value="數學特訓">數學特訓</option>
+              <option value="社會特訓">社會特訓</option>
+              <option value="自然與英文">自然與英文</option>
+              <option value="115預測與申論">115預測與申論</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1 font-bold">細分主題：</label>
+            <input type="text" id="modal-subcategory" placeholder="例如：斜率公式、民俗常識" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 focus:outline-none text-slate-200">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-slate-400 mb-1 font-bold">卡片正面（問題）：</label>
+          <textarea id="modal-question" required rows="3" placeholder="寫下您想考驗自己的題目、關鍵字，或易混淆考點..." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 focus:outline-none text-slate-200 leading-relaxed"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-slate-400 mb-1 font-bold">卡片背面（詳細解答 / 老哥口訣）：</label>
+          <textarea id="modal-answer" required rows="4" placeholder="寫下詳解、辨析、或老哥傳授的獨家記憶口訣..." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 focus:outline-none text-slate-200 leading-relaxed"></textarea>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-slate-400 mb-1 font-bold">備忘小提示（左下方）：</label>
+            <input type="text" id="modal-tip" placeholder="例如：5/30會出、秒殺" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 focus:outline-none text-slate-200">
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1 font-bold">難易度：</label>
+            <select id="modal-difficulty" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 focus:outline-none text-slate-200 font-bold">
+              <option value="S">S 級 (重中之重)</option>
+              <option value="A">A 級 (高頻考點)</option>
+              <option value="B">B 級 (中頻常識)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex gap-3 justify-end mt-2">
+          <button type="button" onclick="closeAddModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl font-bold">取消</button>
+          <button type="submit" class="px-5 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-400 hover:to-purple-400 text-white rounded-xl font-bold shadow-lg">確認新增</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CUSTOM ALERT MODAL -->
+  <div id="alert-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-sm p-6 flex flex-col items-center gap-4 shadow-2xl">
+      <div id="alert-icon-box" class="h-12 w-12 rounded-full flex items-center justify-center">
+        <!-- Lucide icon injected dynamically -->
+      </div>
+      <div class="text-center">
+        <h4 id="alert-title" class="text-base font-bold text-slate-100">通知</h4>
+        <p id="alert-message" class="text-xs text-slate-400 mt-1 leading-relaxed">訊息內容</p>
+      </div>
+      <div class="flex gap-3 w-full justify-center mt-2">
+        <button id="alert-cancel-btn" onclick="closeAlert()" class="flex-1 max-w-[100px] py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl font-bold text-xs hidden">取消</button>
+        <button id="alert-confirm-btn" onclick="executeAlertAction()" class="flex-1 max-w-[100px] py-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-xl font-bold text-xs">確定</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-900 bg-slate-950 py-6 px-4 text-center text-slate-500 text-xs mt-12">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <span>
+        葉石濤紀念閃卡系列 •「這是個適合人們作夢、幹活、戀愛、結婚、悠然過日子的好地方。」
+      </span>
+      <span class="flex items-center gap-1">
+        Made with <i data-lucide="heart" class="h-3.5 w-3.5 text-pink-500 fill-pink-500"></i> by G哥 for 容辰妹妹
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    // --- Card Dataset (Same as latest JSX configuration) ---
+    const INITIAL_CARDS = [
+      // S級必考
+      {
+        id: 's1',
+        category: 'S級必考',
+        subcategory: '音樂常識',
+        question: '在國小藝能考題中，音名「Mi」對應的唱名與常考關鍵是什麼？',
+        answer: '音名 Mi 對應的字母是「E」。\n\n💡 記憶法：\nC(Do), D(Re), E(Mi), F(Fa), G(Sol), A(La), B(Si)。「Mi = E」是近 6 年（107-113）每年必考的送分題，看到直接秒選 E！',
+        difficulty: 'S',
+        tip: '107-113 連續 6 年必考！'
+      },
+      {
+        id: 's2',
+        category: 'S級必考',
+        subcategory: '體育/體適能',
+        question: '體適能五大要素是哪五個？運動 333 原則的具體內容是什麼？',
+        answer: '● **體適能五大要素**：\n1. 身體組成\n2. 心肺耐力（最重要！）\n3. 柔軟度\n4. 肌力\n5. 肌耐力。\n\n● **運動 333 原則**：\n每週至少運動 **3 次**、每次至少 **30 分鐘**、運動時心跳率達每分鐘 **130 次**以上。',
+        difficulty: 'S',
+        tip: '體適能年年必出基本分'
+      },
+      {
+        id: 's3',
+        category: 'S級必考',
+        subcategory: '數學基本功',
+        question: '質數與因倍數考題中，最重要的「兩數乘積定理」和「唯一偶質數」邏輯是什麼？',
+        answer: '1. **$GCD(a, b) \\times LCM(a, b) = a \\times b$**\n最大公因數乘最小公倍數，必等於兩數相乘。\n\n2. **質數「2」是唯一的偶質數**：\n若題目提到「兩個質數之和為奇數（例如和為 99）」，因為「奇數 + 偶數 = 奇數」，所以必定其中一個質數是唯一的偶質數「2」，另一個就是 97。',
+        difficulty: 'S',
+        tip: '看到兩個質數和為奇數，直接聯想「2」！'
+      },
+      {
+        id: 's4',
+        category: 'S級必考',
+        subcategory: '自然救急',
+        question: '標準大氣壓的黃金密碼是多少？DNA 刑事鑑定時有何「去核化」致命地雷？',
+        answer: '● **標準大氣壓**：\n$1\\text{ atm} = 76\\text{ cmHg} = 1013\\text{ hPa}$（百帕）。\n💡 口訣：「大氣讓我十三分（1013）著迷！」千萬不要被 3100 或 2300 的高壓選項干擾。\n\n● **DNA 鑑定地雷**：\n大人的「成熟紅血球細胞沒有細胞核」（成熟時去核化以攜帶更多氧），**成熟紅血球絕不能用來驗 DNA**！血液鑑定驗的是有核的**「白血球」**。\n💡 口訣：「紅白大對抗，紅血球沒核（無DNA），白血球出馬驗真兇！」',
+        difficulty: 'S',
+        tip: '成熟紅血球沒有細胞核，白血球才有！'
+      },
+      {
+        id: 's5',
+        category: 'S級必考',
+        subcategory: '數學常規公式',
+        question: '如何判定二元二次方程是不是「圓形」？「兩根之和」與「求餘式」的秒殺技巧為何？',
+        answer: '● **是不是圓形**：\n尋找包含 $x^2 + y^2$ 且係數相同的選項。如果是 $x^2 - y^2$（雙曲線）或係數不同則不對。\n\n● **兩根之和**：\n$ax^2 + bx + c = 0$ 中，兩根之和為 $-\\frac{b}{a}$。白話：**中間數字變號**。例如：$x^2 - 3x + 2 = 0$，兩根之和小數直接變號得 $3$。\n\n● **求餘式（餘式定理）**：\n多項式除以 $(x - A)$，餘式即為 $f(A)$（**代入密碼**）。若代入密碼算出為 $0$，則代表它「是因式」（因式定理，歸零就是因式）。',
+        difficulty: 'S',
+        tip: '除以 (x-2) 就是把 2 代進去算 f(2)！'
+      },
+      // 國文特訓
+      {
+        id: 'c1',
+        category: '國文特訓',
+        subcategory: '季節判讀',
+        question: '國文最愛考的「春夏秋冬」詩詞季節判讀，各有哪些一秒辨識的「關鍵字 CP」？',
+        answer: '● **春天 (Spring)**：\n【風向】東風（東風報曉）\n【植物】桃、理（桃紅李白）、楊柳\n【節日】清明、寒食。\n💡 口訣：「東風吹得桃李開。」\n\n● **夏天 (Summer)**：\n【風向】南風（薰風）\n【植物】荷花、蓮花\n【動物】蟬（知了）、蛙。\n💡 口訣：「夏天好熱，吹南風、聽蟬叫、看蓮花。」\n\n● **秋天 (Autumn)**：\n【風向】西風（金風）\n【植物】楓葉（紅）、菊花（黃花）\n【景物】霜、月亮（中秋）。\n💡 口訣：「西風吹，楓葉紅，菊花開。」\n\n● **冬天 (Winter)**：\n【風向】北風（朔風）\n【植物】梅花、松、柏（歲寒三友）。\n💡 口訣：「北風冷死人，只有梅花不怕冷。」',
+        difficulty: 'A',
+        tip: '東風春、南風夏、西風秋、北風冬'
+      },
+      {
+        id: 'c2',
+        category: '國文特訓',
+        subcategory: '桃花源記 & 師說',
+        question: '《桃花源記》與《師說》的考題核心精神、必考關鍵字以及防呆字音字義地雷為何？',
+        answer: '● **陶淵明《桃花源記》**（烏托邦思想）：\n- 關鍵：**「避秦亂」**（為了躲秦朝，非漢晉）；「落英繽紛」；「不足為外人道也」；「劉子驥」尋病終，「遂無問津者」。\n- 地雷：阡陌**「交通」**古義為「田間小路交錯相通」！**「黃髮」**垂髫借代「老人」（頭髮變黃），垂髫借代「小孩」。\n\n● **韓愈《師說》**（批判士大夫恥學於師）：\n- 關鍵：「傳道、授業、解惑」；「無貴無賤，無長無少」；「道之所存，師之所存也」；「聖人無常師」。寫作對象為 17 歲愛古文的**「李氏子蟠」**。\n- 地雷：受業中**「受」通「授」**；吾從而**「師」之**意為「以他為師」（意動動詞）；**「惑」**而不從師是動詞（遇到了疑惑）。',
+        difficulty: 'A',
+        tip: '阡陌交通是田間小路，不是現代紅綠燈交通！'
+      },
+      {
+        id: 'c3',
+        category: '國文特訓',
+        subcategory: '出師表 & 岳陽樓記',
+        question: '《出師表》與《岳陽樓記》的考題核心精神、必考關鍵字與字音字義地雷為何？',
+        answer: '● **諸葛亮《出師表》**（鞠躬盡瘁、勸後主聽信忠臣）：\n- 關鍵：「臣本布衣」自謙**平民**；「三顧臣於草廬之中」知遇之恩；「開張聖聽」廣開言路；**「陟（ㄓˋ）罰臧（ㄗㄤ）否（ㄆㄧˇ）」**（功過賞罰一致）。\n- 地雷：庶竭駑鈍中**「庶」代表「希望」**，駑代表劣馬；臨表**「涕」泣**是指「眼淚」，不是鼻涕！\n\n● **范仲淹《岳陽樓記》**（不以物喜，不以己悲）：\n- 關鍵：**「滕子京」**謫守巴陵郡，重修岳陽樓；「先天下之憂而憂，後天下之樂而樂」。\n- 地雷：**「謫」**（ㄗㄜˊ，降職貶官）；朝暉夕**「陰」**（陰天昏暗）；**「微」**斯人，吾誰與歸的**「微」代表「如果沒有」**（超級常客！）。',
+        difficulty: 'A',
+        tip: '微斯人的「微」是「如果沒有」！'
+      },
+      {
+        id: 'c4',
+        category: '國文特訓',
+        subcategory: '赤壁賦 & 始得西山宴遊記',
+        question: '《赤壁賦》與《始得西山宴遊記》的考題核心精神、必考關鍵字與字音字義地雷為何？',
+        answer: '● **蘇軾《赤壁賦》**（豁達超然、水月變與不變）：\n- 關鍵：「寄蜉蝣於天地，渺滄海之一粟」感嘆短暫與渺小；「逝者如斯，而未嘗往也；盈虛者如彼，而卒莫消長也」；「清風與明月」大自然無盡寶藏。\n- 地雷：舉酒**「屬」**客（ㄓㄨˇ，通「囑」，意為勸酒）；**「馮」**虛御風（ㄆㄧㄥˊ，通「憑」，意為依靠、乘著）。\n\n● **柳宗元《始得西山宴遊記》**（天人合一、超脫貶謫心靈起點）：\n- 關鍵：**「始得」**代表之前只是慢吞吞（施施）地玩，發現西山才是心靈解脫、真正遊歷山水的開始；「心凝形釋，與萬化冥合」。\n- 地雷：**「施施」**而行（ㄕ ㄕ，慢吞吞散步）；而未**「始」**知西山之怪特的「始」是「不曾、未曾」。',
+        difficulty: 'A',
+        tip: '屬客讀ㄓㄨˇ（勸酒），馮虛讀ㄆㄧㄥˊ（憑）'
+      },
+      {
+        id: 'c5',
+        category: '國文特訓',
+        subcategory: '醉翁亭記 & 屈原漁父',
+        question: '《醉翁亭記》與《漁父》的考題核心精神、必考關鍵字與字音字義地雷為何？',
+        answer: '● **歐陽修《醉翁亭記》**（寄情山水、與民同樂）：\n- 關鍵：「醉翁之意不在酒，在乎山水之間也」；「與民同樂」；「翼然」臨於泉上（像鳥張開翅膀形容屋簷）。\n- 地雷：**「傴僂（ㄩˇ ㄌㄡˊ）提攜」**：傴僂指駝背老人，提攜指小孩，合指百姓扶老攜幼。\n\n● **屈原《漁父》**（寧為玉碎 vs. 隨遇而安）：\n- 關鍵：「舉世皆濁我獨清，眾人皆醉我獨醒」；「滄浪之水清兮，可以濯吾纓；滄浪之水濁兮，可以濯吾足」；「新沐者必彈冠，新浴者必振衣」潔身自愛。\n- 地雷：**「濯」**（ㄓㄨㄛˊ，洗滌）吾足；**「淈」**（ㄍㄨˇ，攪渾）其泥而揚其波。',
+        difficulty: 'A',
+        tip: '傴僂讀ㄩˇ ㄌㄡˊ（借代老人），提攜指牽著小孩'
+      },
+      {
+        id: 'c6',
+        category: '國文特訓',
+        subcategory: '字音字義大地雷',
+        question: '國文考題「同音不同形」字音與「古今字義大翻臉」常考的有哪些？',
+        answer: '● **同音不同形字音大惡作劇**：\n- **「倀」**（為虎作倀）讀音 **ㄔㄤ**（昌）。\n- **「謫」**（謫守巴陵郡）讀音 **ㄗㄜˊ**（哲）。\n- **「陟」**（陟罰臧否）讀音 **ㄓˋ**（志）。\n- **「傴僂」**讀音 **ㄩˇ ㄌㄡˊ**（雨樓）。\n\n● **古今字義大翻臉**：\n- 阡陌**「交通」**：古「田間小路交錯相通」，今「車輛馬路往來」。\n- 臨表**「涕」**泣：古「眼淚」，今「鼻涕」。\n- 沛公**「不好」**貨色：古「不喜好」，今「差、劣」。\n- **「其實**味不同」：古「它的果實」，今「實際上」。\n\n● **代詞「之」指代**：\n「吾從而師之」的**之**指「能當我老師的人」；「始指異之...其高下之勢」的**其**指「西山」。',
+        difficulty: 'A',
+        tip: '倀、謫、陟、傴僂讀音與交通、涕、其實古義必背！'
+      },
+      // 數學特訓
+      {
+        id: 'm1',
+        category: '數學特訓',
+        subcategory: '斜率與兩點距離',
+        question: '「爬樓梯理論」如何秒殺直線斜率？「距離公式」如何結合畢氏定理與常用的根號近似值？',
+        answer: '● **斜率（Slope）的爬樓梯理論**：\n斜率 $m = \\frac{\\text{高度差 } (\\Delta y)}{\\text{水平差 } (\\Delta x)}$\n💡 口訣：**「Y 高高在上，X 趴在地上。」**（高度 $\\div$ 走路）\n*範例：點 $(1, 2)$ 到 $(3, 6)$，高度差 $4$（放上面），水平差 $2$（放下面），斜率就是 $4 \\div 2 = 2$。*\n\n● **兩點距離公式**：\n距離 $d = \\sqrt{\\text{走路}^2 + \\text{爬樓}^2} = \\sqrt{(x_1-x_2)^2 + (y_1-y_2)^2}$。白話就是算完畢氏定理，**最後記得蓋房子（加根號）**！\n\n● **根號常用近似值**：\n- $\\sqrt{2} \\approx 1.414$（💡 口訣：意思意思）\n- $\\sqrt{3} \\approx 1.732$（💡 口訣：一妻三兒）',
+        difficulty: 'A',
+        tip: 'Y 爬高高放分子，X 趴地上放分母。'
+      },
+      {
+        id: 'm2',
+        category: '數學特訓',
+        subcategory: '不等式與指數運算',
+        question: '解不等式時什麼時候中間符號需要「翻臉」？指數運算的「消消樂法則」如何理解？',
+        answer: '● **不等式負能量翻臉定律**：\n解大於（$>$）、小於（$<$）的不等式跟一般一元一次方程完全一樣，加減移動都沒事。**只有在「乘以」或「除以」一個「負數」到對面時，符號要「翻臉」（大於變小於，小於變大於）**。\n*範例：$-2x > 6 \\rightarrow$ 兩邊同除 $-2$（壞人），中間嘴巴轉向 $\\rightarrow x < -3$。*\n\n● **指數消消樂**：\n$a^m \\div a^n = a^{m-n}$。\n*範例：問「$4^7$ 是 $4^3$ 的幾倍？」就是上面 $7$ 個 $4$ 排排站，除以下面 $3$ 個 $4$，一樣的殺掉，剩下 $4$ 個 $4$ 相乘，即 $4^4 = 256$ 倍。*',
+        difficulty: 'B',
+        tip: '乘以或除以「負數」，大於小於就要翻臉！'
+      },
+      {
+        id: 'm3',
+        category: '數學特訓',
+        subcategory: '畢氏定理',
+        question: '直角三角形的畢氏定理公式是什麼？考題 90% 只考哪兩組「神聖密碼組」？',
+        answer: '● **畢氏定理**：\n直角三角形中，$a^2 + b^2 = c^2$（短邊平方和等於斜邊平方）。\n\n● **神聖密碼組**（看到前兩個數字，直接反應第三個）：\n1. **「3、4、5」**：最經典！3 和 4 是短邊，5 是最長斜邊。其倍數如 6, 8, 10 亦同。\n2. **「5、12、13」**：第二常考！5 和 12 是短邊，13 是長斜邊。\n\n💡 避雷針：考試若考直角三角形，先默念密碼組，可直接秒選答案，省下計算平方的時間！',
+        difficulty: 'A',
+        tip: '直角三角形必背：3-4-5、5-12-13 密碼組。'
+      },
+      {
+        id: 'm4',
+        category: '數學特訓',
+        subcategory: '相似形與中位數',
+        question: '相似三角形的「長度比與面積比」如何轉換？若全班是偶數人，中位數怎麼算？',
+        answer: '● **相似形維度轉換**：\n- **長度比（邊長、周長）**是一維（1D），比例為 $A : B$。\n- **面積比**是二維（2D），比例必為平方比，即 **$A^2 : B^2$**。\n*範例：若面積比為 $9 : 25$，周長比就是開根號還原為 $3 : 5$。*\n\n● **中位數計算**：\n中位數是全班成績排排站最中間的那個人。若總人數為奇數（如 5 人），中位數是第 3 個人。**若總人數為偶數（如 20 人），沒有絕對中間，需找出第 10 人和第 11 人成績，相加除以 2**。',
+        difficulty: 'A',
+        tip: '1D長度比開根號還原，2D面積比要平方！'
+      },
+      {
+        id: 'm5',
+        category: '數學特訓',
+        subcategory: '集合與對數 Log',
+        question: '集合重疊公式如何運算？對數 Log 的本質在問什麼？有哪些必背特殊規則？',
+        answer: '● **集合與重疊公式**：\n**$A + B - \\text{兩者都有} + \\text{兩者都無} = \\text{全部總人數}$**\n💡 白話：加起來超過總數的部分，就是重疊舉了兩次手的人。\n*範例：班上 30 人均有養寵物，養狗 20 人，養貓 15 人。相加得 $20+15=35$。多出的 $35-30=5$ 人就是都有養的人。\n\n● **對數 Log（問「幾次方」）**：\n$\\log_b x = y$ 代表 $b^y = x$。是在找「右上角的小指數」。\n*範例：$\\log_2 8 = ?$，就是問「2 的幾次方會變成 8？」 $\\rightarrow$ $2^3 = 8$，答案是 $3$。*\n\n● **必背特殊規則**：\n- **$\\log_a 1 = 0$**（任何數 of 0 次方都是 1）\n- **$\\log_a a = 1$**（任何數 of 1 次方都是自己）',
+        difficulty: 'B',
+        tip: 'Log 只是在問幾次方！log_a 1 恆為 0。'
+      },
+      // 社會特訓
+      {
+        id: 'sh1',
+        category: '社會特訓',
+        subcategory: '清朝男主角：沈葆楨 vs. 劉銘傳',
+        question: '清朝治理台灣兩大最易混淆的男主角「沈葆楨」與「劉銘傳」，各自的關鍵字與歷史貢獻口訣是什麼？',
+        answer: '● **沈葆楨：關鍵字「保」（保護）**\n- **原因**：因日本發動**「牡丹社事件」**（日本人打過來）來台。\n- **作為**：防禦保護台灣。興建億載金城大砲台、推動**「開山撫番」**（打通前後山交通）。\n💡 記憶點：「沈葆楨愛牡丹，為了保護她去開山。」\n\n● **劉銘傳：關鍵字「傳」（傳送/傳輸）**\n- **身分**：台灣建省後的「現代化之父」。\n- **作為**：鋪設**鐵路**、引進**火車、電燈、郵局、電報**。\n💡 記憶點：「劉銘傳愛傳輸，火車電燈樣樣通。」',
+        difficulty: 'A',
+        tip: '沈愛牡丹去開山（沈葆楨），劉愛傳輸通火車（劉銘傳）。'
+      },
+      {
+        id: 'sh2',
+        category: '社會特訓',
+        subcategory: '史前文化與台灣的風',
+        question: '舊石器長濱文化與新石器卑南文化有何特蹤？「焚風」與「落山風」如何判定？',
+        answer: '● **長濱文化（舊石器時代）：關鍵字「最老」**\n- 只會敲打石器（打製石器），**沒有陶器、沒有種田**（太老了還不會）。\n💡 記憶點：「長濱老爺爺，只會敲石頭。」\n\n● **卑南文化（新石器時代）：關鍵字「板岩石棺」**\n- 台東卑南遺址出土大量石棺與玉器。\n💡 記憶點：「卑南有石棺（悲 = 棺材）。」\n\n● **焚風 vs. 落山風**：\n- **焚風**：【熱、台東】。過山氣流下沉至台東，變得乾熱。💡 記憶點：「火燒台東」。\n- **落山風**：【冬、恆春/墾丁】。冬季強勁的東北季風越過山嶺在恆春降下。💡 記憶點：「墾丁吹落山」。',
+        difficulty: 'B',
+        tip: '最老長濱不種田，悲情卑南有石棺。'
+      },
+      {
+        id: 'sh3',
+        category: '社會特訓',
+        subcategory: '17 世紀台灣三角戀',
+        question: '17 世紀台灣的「荷蘭人」、「西班牙人」與「鄭成功」，其統治地盤、定情物建設與歷史口訣為何？',
+        answer: '● **17 世紀台灣大夯哥地位（地理位置優，適合做生意）：**\n\n1. **荷蘭人（紅毛番）**：霸佔南部的恐怖情人\n- 地盤：**台南（南部）**。\n- 定情物：熱蘭遮城（安平古堡）、普羅民遮城（赤崁樓）。\n- 影響：來賺錢榨乾台灣，**引進黃牛**幫忙耕作甘蔗。\n💡 口訣：「荷蘭人愛喝台南全糖微冰，騎著黃牛逛安平古堡。」\n\n2. **西班牙人**：住在北部的短命備胎\n- 地盤：**淡水、基隆（北部）**。\n- 定情物：聖多明哥城（紅毛城）。後來被荷蘭人打跑趕走。\n💡 口訣：「西班牙人愛淡水夕陽（紅毛城），可惜被荷蘭人打跑了。」\n\n3. **鄭成功（國姓爺）**：趕走荷蘭人的救星\n- 目的：為了「反清復明」需要基地，攻打熱蘭遮城逼荷蘭投降退回歐洲。\n💡 口訣：「鄭成功不愛紅毛，把荷蘭人踢回歐洲。」',
+        difficulty: 'A',
+        tip: '荷蘭台南建安平，西班牙淡水紅毛城，鄭成功趕跑荷蘭。'
+      },
+      {
+        id: 'sh4',
+        category: '社會特訓',
+        subcategory: '渡臺禁令與清末三寶',
+        question: '清初「渡臺禁令」造成何種社會現象？「清末三寶」在台灣北、中、南的分佈與茶葉乾爹是誰？',
+        answer: '● **渡臺禁令（清朝初期）**：\n- 規定：准許男人來台打工，但**不准帶老婆家眷**。\n- 後果：台灣充斥單身漢（**羅漢腳**），無家室約束，極易打架鬧事（械鬥）。\n💡 口訣：「清朝皇帝管很寬，禁止攜伴，台灣滿街羅漢腳。」\n\n● **清末三寶（開港通商後發大財）**：\n- **茶葉（北部）**：北部濕冷丘陵適合種茶。💡 口訣：「文青愛喝茶，文青都在台北。」\n- **蔗糖（南部）**：南部陽光熱帶氣候適合種甘蔗。💡 口訣：「南部人喝飲料都全糖。」\n- **樟腦（中部/山區）**：樟樹位於深山，常與原住民地盤重疊產生衝突。💡 口訣：「中間有樹，樹有樟腦。」\n\n● **茶葉乾爹「陶德 (John Dodd)」**：\n外商陶德發現烏龍茶商機，外銷美國紐約爆紅。**錢在北部（茶葉樟腦） $\\rightarrow$ 台灣經濟重心由南部移至北部（「一府二鹿三艋舺」沒落）**，這也是後來劉銘傳將省會改設在台北的原因。',
+        difficulty: 'B',
+        tip: '羅漢腳因禁止攜眷；北部茶、南部糖、中部樟腦。陶德是茶葉乾爹！'
+      },
+      {
+        id: 'sh5',
+        category: '社會特訓',
+        subcategory: '房東變遷史與三大民變',
+        question: '台灣房東三部曲（馬關條約、八田與一、十大建設）各為何？「三大民變」的關鍵字與歷史判讀如何秒殺？',
+        answer: '● **台灣房東三部曲**：\n- **第一任房東（清朝）**：甲午戰爭戰敗簽訂**《馬關條約》**（李鴻章），將台灣「割讓」給日本。💡 口訣：「馬關條約，馬上關門走人。」\n- **第二任房東（日本）**：守時、衛生、警察制度極嚴。建設**「嘉南大圳」之父「八田與一」**（蓋烏山頭水庫，使嘉南平原變大米倉）。💡 口訣：「八田與一，種田第一。」\n- **第三任房東（中華民國）**：1947年爆發二二八事件；1970年代蔣經國推動**「十大建設」**（高速公路、中鋼、桃園機場、核電廠等）拼經濟。\n\n● **清代台灣三大民變（三年一小反，五年一大亂）**：\n- **朱一貴：關鍵字【鴨、第一個】**。養鴨子輸出（鴨母王），第一個在台稱帝（很快就被平定）。💡 口訣：「朱一貴，養鴨跪。」\n- **林爽文：關鍵字【天地會、最久最大】**。規模最大打最久（爽最久）。乾隆特派福康安來台平定，並在赤崁樓立了 **9 個烏龜碑**紀念。\n💡 口訣：「林爽文，打得太爽，搞到乾隆立烏龜。」\n- **戴潮春：關鍵字【中部、快結束時】**。清末民變，發生於中部（台中/彰化）。💡 口訣：「戴潮春，帶起台中的春天。」',
+        difficulty: 'A',
+        tip: '八田與一蓋大圳；朱一貴養鴨、林爽文立九隻烏龜、戴潮春在台中。'
+      },
+      {
+        id: 'sh6',
+        category: '社會特訓',
+        subcategory: '社會科事件與傳教士急救包',
+        question: '如何區分「二二八事件」與「美麗島事件」？「馬偕與馬雅各」、「霧社與牡丹社」有何本質差異？',
+        answer: '● **民主運動雙胞胎**：\n- **二二八事件 (1947年)**：剛光復不久，台北**查緝私菸**引發衝突，長官陳儀處置失當派兵鎮壓。💡 口訣：「二二八，阿婆賣菸被打。」\n- **美麗島事件 (1979年)**：蔣經國戒嚴晚期，**高雄**黨外人士於世界**人權日**拿火把遊行要求民主，爆發大審判。💡 口訣：「美麗島在高雄，為了人權拿火把。」\n\n● **北部馬偕 vs. 南部馬雅各**：\n- **馬偕 (Mackay)**：【北部、淡水】。拔牙、蓋馬偕醫院、蓋牛津學堂（真理大學）。💡 口訣：「馬偕在淡水拔牙齒。」\n- **馬雅各 (Maxwell)**：【南部、台南】。建立台灣第一間西醫醫院「新樓醫院」。💡 口訣：「馬雅各愛南部。」\n\n● **牡丹社事件 vs. 霧社事件**：\n- **牡丹社事件（清朝）**：日本以琉球漂流民被原住民殺害為由攻台，隨後沈葆楨來台辦理防務（開山撫番）。💡 口訣：「牡丹是給沈葆楨看的。」\n- **霧社事件（日治）**：莫那魯道抗日（賽德克巴萊）。💡 口訣：「莫那魯道在霧裡砍日本人。」',
+        difficulty: 'A',
+        tip: '阿婆賣菸228，美麗高雄拿火把。馬偕淡水拔牙，馬雅各愛南部。'
+      },
+      {
+        id: 'sh7',
+        category: '社會特訓',
+        subcategory: '台灣地形左右臉與風',
+        question: '台灣「西邊臉」與「東邊臉」的地形作用（侵蝕/堆積）與地貌產物有何不同？北邊有何特徵？',
+        answer: '● **西邊的臉（胖胖的，面向台灣海峽）**：\n- 特色：平原多、沙多、水淺。\n- 地質作用：河川沖刷泥沙下山 $\\rightarrow$ **「堆積」作用**為主。\n- 產物：**沙洲、潟湖（適合養蚵仔）、海埔新生地**。\n💡 口訣：「西邊堆積出頭天。」\n\n● **東邊的臉（瘦瘦的，面向太平洋）**：\n- 特色：高山陡峭直接插進深海、多岩石。\n- 地質作用：海浪經年累月拍打 $\\rightarrow$ **「侵蝕」作用**為主。\n- 產物：**斷崖（清水斷崖）、奇岩怪石（野柳女王頭）**。\n💡 口訣：「東邊被海吃光光（侵蝕）。」\n\n● **北邊的臉（火山與岩岸）**：\n- 特色：大屯火山群。海岸線彎曲（岩岸、谷灣），適合闢建港口（基隆港）。',
+        difficulty: 'B',
+        tip: '西堆積（沙洲潟湖養蚵），東侵蝕（斷崖奇石）。'
+      },
+      // 自然與英文
+      {
+        id: 'n1',
+        category: '自然與英文',
+        subcategory: '英文時態秒殺抓手',
+        question: '英文閱讀與單字考題中，如何透過時間副詞秒殺「進行式」、「現在完成式」與「過去式」？',
+        answer: '● **動作正在眼前發生 $\\rightarrow$ 正在進行式 (be + V-ing)**\n- 秒殺抓手單字：句首或句尾出現 **Now**（現在）、**Look!**（看啊！）、**Listen!**（聽啊！）。\n*範例：Look! The birds are singing beautifully.（ since 或者是 look 的提示，看當下正在發生動作，秒選 be + V-ing）*\n\n● **動作持續累積到現在 $\\rightarrow$ 現在完成式 (have/has + p.p.)**\n- 秒殺抓手單字：看見 **Since + 過去時間起點**，或 **For + 一段持續的時間長度**。\n*範例：My teacher has taught English here for ten years.（十年前教到現在，秒選完成式）*\n\n● **動作徹底結束於過去 $\\rightarrow$ 過去式 (V-ed / 過去動詞)**\n- 秒殺抓手單字：看到 **Yesterday**（昨天）、**Last year/night**、**... ago**（多久以前）。\n*範例：Jack worked at the restaurant last year.（時間徹底鎖死在過去，與現在無關，秒選過去式）*',
+        difficulty: 'A',
+        tip: 'Look/Listen!用進行式；Since/For用完成式；Yesterday用過去式。'
+      },
+      {
+        id: 'n2',
+        category: '自然與英文',
+        subcategory: '英文交通介系詞陷阱',
+        question: '搭乘交通工具時，介系詞 by, in, on 什麼時候會產生「防手滑」的對決？',
+        answer: '搭乘交通工具的介系詞判定，取決於**「後面有沒有冠詞（a/the）或所有格（his/my）」**：\n\n● **第一種：後面【沒有冠詞 / 單數名詞】 $\\rightarrow$ 必用 by！**\n- 表示移動的手段方式。\n- 例如：**by bicycle** / **by MRT** / **by train** / **by bus** / **by car**。\n- ⚠️ 注意：中間絕對不能塞 a 或 the！寫「by a car」是錯的！\n\n● **第二種：後面【有冠詞 / 所有格】 $\\rightarrow$ 改用 in 或 on！**\n- 大空間（能在上面站立行走）用 **on**：**on his bicycle**、**on the train**、**on a bus**。\n- 小空間（只能坐著不能站）用 **in**：**in a car**、**in my taxi**。',
+        difficulty: 'B',
+        tip: 'by 後面直接加交通工具；有 a/the 就要用 in 或 on！'
+      },
+      {
+        id: 'n3',
+        category: '自然與英文',
+        subcategory: '光學與顯微鏡',
+        question: '陽光色散中折射角大與小如何排序？透鏡成像如何區分？複式顯微鏡成像有何玄機？',
+        answer: '● **色散**：\n太陽光經三稜鏡分七色。**紅光折射最少、紫光折射最多**。彩虹原理是空氣微小水滴相當於小三稜鏡，光線經過一次反射與兩次折射形成的色散。\n\n● **透鏡作用**：\n- **凸透鏡**：中間厚、邊緣薄。**聚光**（放大鏡、老花眼鏡、遠視鏡）。\n- **凹透鏡**：中間薄、邊緣厚。**散光**（近視眼鏡）。\n\n● **複式顯微鏡成像**：\n呈**倒立放大實像**（相當於實物**順時針旋轉 180°**，即上下顛倒，左右相反）。\n💡 記憶法：若載玻片寫 91 鏡中看變 16；寫 **qp** 鏡中看變 **db**！若玻片往左移，視野下影像往右移（相反）。',
+        difficulty: 'A',
+        tip: '紅光折射最少，顯微鏡 qp 變 db！'
+      },
+      {
+        id: 'n4',
+        category: '自然與英文',
+        subcategory: '月相判斷口訣',
+        question: '請默寫月相判讀的核心口訣，並詳述上弦月、下弦月在農曆時間與亮面方向的差異？',
+        answer: '💡 核心口訣：**「上上上西西，下下下東東」**\n\n● **上弦月**：\n農曆**上**半月（初七、八）、**上**半夜（黃昏到午夜）出現、亮面朝**西**（右側亮，像字母 D）。\n\n● **下弦月**：\n農曆**下**半月（廿二、三）、**下**半夜（午夜到清晨）出現、亮面朝**東**（左側亮，像字母 C）。\n\n● **其他月相**：\n- 新月（朔）：初一，完全看不到亮面。\n- 滿月（望）：十五，全亮。月相週期約為 $29.5$ 天。',
+        difficulty: 'A',
+        tip: '「上上上西西，下下下東東」是月相神級口訣。'
+      },
+      {
+        id: 'n5',
+        category: '自然與英文',
+        subcategory: '化學指示劑與人體血液循環',
+        question: '常考的酸鹼指示劑（石蕊、酚酞、廣用）變色規律是什麼？體循環與肺循環路徑及房室口訣為何？',
+        answer: '● **酸鹼指示劑變色**：\n- 石蕊試紙：**酸紅鹼藍**。\n- 酚酞：**酸無色、鹼粉紅**。\n- 廣用試紙：酸（紅橙黃） $\rightarrow$ 中（綠） $\rightarrow$ 鹼（藍靛紫）。\n\n● **體循環與肺循環**：\n💡 口訣：**「室」管送（心室送血出心臟）、「房」管收（心房接收回流血）**。\n- **體循環**：**左心室** $\rightarrow$ 主動脈 $\rightarrow$ 全身微血管 $\rightarrow$ 上下大靜脈 $\rightarrow$ **右心房**（將充氧血送至全身）。\n- **肺循環**：**右心室** $\rightarrow$ 肺動脈 $\rightarrow$ 肺部微血管 $\rightarrow$ 肺靜脈 $\rightarrow$ **左心房**（血液送至肺部交換氧氣，缺氧血變充氧血）。',
+        difficulty: 'A',
+        tip: '酸紅鹼藍；「室」管送、「房」管收。左心室出發為體循環。'
+      },
+      {
+        id: 'n6',
+        category: '自然與英文',
+        subcategory: '生態系與昆蟲考點',
+        question: '「分解者」與「清除者/消費者」在定義上有何本質差別？全球暖化與臭氧層破洞的主凶各為何？昆蟲的身體結構是什麼？',
+        answer: '● **分解者 vs. 清除者（消費者）**：\n- **分解者**：【細菌、真菌（黴菌）】。分泌酵素進行「分子級化解」，將有機物徹底分解為無機物送回大自然。\n- **清除者/消費者**：【禿鷹、馬陸、螃蟹、蚯蚓】。是用肉體「物理性吞食」腐肉大變小，本身無法徹底分解，**學術上依然屬於「消費者」**！\n💡 口訣：「細菌黴菌化骨水（分解者），禿鷹馬陸物理吃（消費者）！」\n\n● **暖化 vs. 臭氧層破洞元凶**：\n- **全球暖化**：元凶是**二氧化碳 ($CO_2$)**，攔截熱能。**$CO_2$ 不會破壞臭氧層！**\n- **臭氧層破洞**：元凶是平流層的**氟氯碳化物 (CFCs)**。\n💡 口訣：「二氧化碳蓋溫室（暖化），氟氯碳化戳破網（臭氧洞）！」\n\n● **昆蟲結構**：\n分**頭、胸、腹**三段。**6 隻腳全部從「胸部」長出來**！完全變態有蛹期；不完全變態無蛹期。蜘蛛有 8 隻腳非昆蟲。',
+        difficulty: 'B',
+        tip: '禿鷹是清除者，但在分類上屬於「消費者」！二氧化碳不破壞臭氧層！'
+      },
+      // 115預測與申論
+      {
+        id: 'p1',
+        category: '115預測與申論',
+        subcategory: '台南文學元素與職場英文預測',
+        question: '115年若重考台南文學與多益職場字彙，有哪些極高機率的重點需要準備？',
+        answer: '● **台南/本土文學作家預測**：\n- **葉石濤**：台南文學巨擘。名言：「這是個適合人們作夢、幹活、戀愛、結婚、悠然過日子的好地方。」\n- **楊逵**：社會寫實作家。代表作**《送報伕》**、〈壓不扁的玫瑰〉（新化人，台南本土）。\n- **鍾理和**：客家作家，代表作《笠山農場》、《原鄉人》（美濃，南部元素）。\n\n● **115 年職場多益化英文預測**：\n1. **comply with** (v. 遵守，113考過，今年仍熱門)\n2. **headquarters** (n. 總部，單複數同形)\n3. **proposal** (n. 提案，常與 submit 搭配)\n4. **deadline** (n. 截止期限)\n5. **complaint** (n. 投訴，動詞為 complain)。',
+        difficulty: 'B',
+        tip: '113 考葉石濤，115 防範楊逵《送報伕》；熟記 comply with！'
+      },
+      {
+        id: 'p2',
+        category: '115預測與申論',
+        subcategory: '數學情境學生迷思預測',
+        question: '若國小學生在分數加減乘除中出錯，常反映出哪種教學現場的學生「數學迷思概念」？',
+        answer: '● **「乘會變大、除會變小」迷思**：\n學生只記整數運算規律。在進行「乘以小於1的分數/小數」時，發現答案比原數小，或者「除以小於1的數」時發現答案比原數大，大腦產生衝突認知。\n\n● **倒數概念缺失**：\n例如計算「$\\frac{1}{2} \\div \\frac{1}{4}$」，正確是乘以除數的倒數（$\\frac{1}{2} \\times 4 = 2$）。若學生算出 $\\frac{1}{8}$，通常是將分子乘分子、分母乘分母，完全缺乏「除以一個分數等於乘以其倒數」的運算機制，這也是國小最經典的教學情境題！',
+        difficulty: 'S',
+        tip: '分數乘除出錯，多考「乘會變大除會變小」和「倒數概念缺失」！'
+      },
+      {
+        id: 'p3',
+        category: '115預測與申論',
+        subcategory: '教育申論 AI、CLIL 與多元整合寫作',
+        question: '若 115 年申論題考「生成式 AI 融入課堂」，如何完美將「CLIL 雙語教學」、「差異化教學」與「SEL（社會情緒學習）」整合進五段式寫作模板？',
+        answer: '● **滿分「跨領域整合」5 段式大綱設計**：\n\n1. **引言**：指出 AI 時代來臨，教學現場正面臨「科技導入（AI）、跨國溝通（雙語CLIL）、個體差異（差異化）與全人關懷（SEL）」的多重交織挑戰。\n\n2. **機會（科技×適性）**：AI 扮演**「認知鷹架（Vygotsky Scaffold）」**，能依學生不同起點行為，即時生成不同難度的雙語教材（**實施差異化教學 Differentiated Instruction**），拓寬**「近側發展區（ZPD）」**。\n\n3. **威脅（科技×情緒）**：過度使用科技容易引發學生「認知外包」與人際疏離。此時必須融入 **SEL（社會情緒學習）課程**，藉由同儕合作與反思，重建學生的**自我覺察、人際技能與負責任的決定**。\n\n4. **教師實務因應（超好用模板！）**：\n- **CLIL雙語實踐**：以「學科內容為主，語言為溝通工具」的 CLIL 4C 架構來設計教案。\n- **評量轉變**：結合 AI 進行**「歷程評量」**而非僅單一紙筆。融入個人實務經驗（💡 筆者曾任代理教師/資訊科任，深刻體會……）。\n\n5. **結論**：呼應 **108 課綱三面九項核心素養（自主行動、溝通互動、社會參與）**，強調教師不再只是知識傳授者，而是引導學生學會科技共存與情緒調適的「全人導師」。',
+        difficulty: 'S',
+        tip: '熟記：AI提供鷹架差異化；SEL穩定學生人際與情緒；CLIL則以學科內容為核心。'
+      },
+      {
+        id: 'p4',
+        category: '115預測與申論',
+        subcategory: 'CLIL 雙語教學心法',
+        question: '115年必然是雙語政策的延續。雙語教育核心學科理論「CLIL」的黃金「4C 架構」是什麼？落實教學時應避免哪種地雷？',
+        answer: '● **CLIL（Content and Language Integrated Learning）黃金 4C 架構**：\n1. **Content（學科內容）**：雙語課本質是學科課（體育、藝術、資訊等），學科專業知識是主體（不能上成英文課）。\n2. **Communication（溝通）**：學生主動在課堂中使用英語作為「溝通媒介」進行對話，而非死背單字文法。\n3. **Cognition（認知）**：透過提問引導，挑戰學生的思維與高層次思考能力。\n4. **Culture（文化）**：培養跨文化認同與全球在地化（Glocalization）視野。\n\n● **防呆地雷**：\n**「語言是溝通工具，而不是最終目標」**。千萬不能因過度追求英語發音而本末倒置，把體育、美勞課上成單字文法死背課。教師應提供足夠的「語言鷹架（Language Scaffolding）」引導發表。',
+        difficulty: 'S',
+        tip: 'CLIL核心是「Content學科為主、語言為輔」！'
+      },
+      {
+        id: 'p5',
+        category: '115預測與申論',
+        subcategory: 'SEL 社會情緒學習',
+        question: '在 3C 普及與少子化焦慮的今天，「SEL (社會情緒學習)」其五大核心能力是什麼？如何在課堂教學落實？',
+        answer: '● **SEL（Social and Emotional Learning）五大核心能力**：\n1. **自我覺察 (Self-awareness)**：能認清自己的情緒與價值觀，並評估自我效能。\n2. **自我管理 (Self-management)**：控制衝動、調適焦慮、訂定目標。\n3. **社會覺察 (Social awareness)**：具同理心，能理解不同背景他人的觀點。\n4. **人際關係技巧 (Relationship skills)**：具備傾聽、協商溝通、團隊合作與衝突解決能力。\n5. **負責任的決定 (Responsible decision-making)**：基於安全、道德與社會規範做出明智選擇。\n\n● **課堂落實技巧**：\n1. **課前情緒點名（Emotional Check-in）**：花 3 分鐘了解學生的情緒狀況。\n2. **小組合作學習**：設計需要高度互助的工作，讓學生在互動中鍛鍊人際應對與情緒覺察。\n3. **安全溫暖的課堂氛圍**：鼓勵容錯，降低學習焦慮。',
+        difficulty: 'A',
+        tip: 'SEL 是學生全人發展與輔導防線的最強關鍵！'
+      }
+    ];
+
+    // --- Core State Variables ---
+    let cards = [];
+    let cardProgress = {};
+    let activeTab = 'flashcards';
+    let viewMode = 'focus';
+    let selectedCategory = '全部';
+    let currentIndex = 0;
+    let flipped = false;
+    let searchTerm = '';
+    let filterStatus = 'all';
+
+    // Modal action reference
+    let alertActionCallback = null;
+
+    // --- Initialize App ---
+    window.onload = function() {
+      // 1. Load data from localStorage or use defaults
+      const savedCards = localStorage.getItem('shijian_cards');
+      if (savedCards) {
+        cards = JSON.parse(savedCards);
+      } else {
+        cards = [...INITIAL_CARDS];
+      }
+
+      const savedProgress = localStorage.getItem('shijian_progress');
+      if (savedProgress) {
+        cardProgress = JSON.parse(savedProgress);
+      }
+
+      // 2. Render UI
+      renderApp();
+      lucide.createIcons();
+    };
+
+    // --- Main Render Controller ---
+    function renderApp() {
+      // Recalculate stats
+      const total = cards.length;
+      const mastered = Object.values(cardProgress).filter(status => status === 'mastered').length;
+      const review = Object.values(cardProgress).filter(status => status === 'review').length;
+      const percentage = total > 0 ? Math.round((mastered / total) * 100) : 0;
+
+      // Update Dashboard UI
+      document.getElementById('progress-percentage').innerText = `熟記率 ${percentage}%`;
+      document.getElementById('progress-bar').style.width = `${percentage}%`;
+      document.getElementById('stat-total').innerText = total;
+      document.getElementById('stat-mastered').innerText = mastered;
+      document.getElementById('stat-review').innerText = review;
+
+      // Get filtered list of cards
+      const filtered = getFilteredCards();
+
+      // Render Category Buttons in Sidebar
+      renderCategoryButtons();
+
+      // View Mode Routing
+      if (filtered.length > 0) {
+        document.getElementById('no-cards-container').classList.add('hidden');
+        
+        if (viewMode === 'focus') {
+          document.getElementById('view-focus-container').classList.remove('hidden');
+          document.getElementById('view-list-container').classList.add('hidden');
+          renderFocusCard(filtered);
+        } else {
+          document.getElementById('view-focus-container').classList.add('hidden');
+          document.getElementById('view-list-container').classList.remove('hidden');
+          renderListCards(filtered);
+        }
+      } else {
+        document.getElementById('view-focus-container').classList.add('hidden');
+        document.getElementById('view-list-container').classList.add('hidden');
+        document.getElementById('no-cards-container').classList.remove('hidden');
+      }
+
+      // Sync Search Close button
+      const clearSearchBtn = document.getElementById('clear-search-btn');
+      if (searchTerm) {
+        clearSearchBtn.classList.remove('hidden');
+      } else {
+        clearSearchBtn.classList.add('hidden');
+      }
+    }
+
+    // --- Filter logic ---
+    function getFilteredCards() {
+      return cards.filter(card => {
+        const matchesCategory = selectedCategory === '全部' || card.category === selectedCategory;
+        const matchesSearch = 
+          card.question.toLowerCase().includes(searchTerm.toLowerCase()) || 
+          card.answer.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          (card.subcategory && card.subcategory.toLowerCase().includes(searchTerm.toLowerCase()));
+        
+        const status = cardProgress[card.id] || 'none';
+        const matchesStatus = filterStatus === 'all' || status === filterStatus;
+
+        return matchesCategory && matchesSearch && matchesStatus;
+      });
+    }
+
+    // --- Render focus card ---
+    function renderFocusCard(filteredList) {
+      // Bounds protection
+      if (currentIndex >= filteredList.length) {
+        currentIndex = Math.max(0, filteredList.length - 1);
+      }
+
+      const card = filteredList[currentIndex];
+      if (!card) return;
+
+      // Card flip synchronization
+      const cardInner = document.getElementById('card-inner-box');
+      if (flipped) {
+        cardInner.classList.add('rotate-y-180');
+      } else {
+        cardInner.classList.remove('rotate-y-180');
+      }
+
+      // Problem Elements
+      document.getElementById('focus-category-text').innerText = `${card.category} ${card.subcategory ? ' • ' + card.subcategory : ''}`;
+      document.getElementById('focus-card-difficulty').innerText = `${card.difficulty} 級難度`;
+      document.getElementById('focus-card-index').innerText = `卡片 ${currentIndex + 1} / ${filteredList.length}`;
+      document.getElementById('focus-question').innerText = card.question;
+      document.getElementById('focus-tip').innerText = card.tip || '教檢高頻重點考點';
+      document.getElementById('focus-answer').innerText = card.answer;
+
+      // Status buttons highlight
+      const progress = cardProgress[card.id] || 'none';
+      const btnMastered = document.getElementById('btn-mastered');
+      const btnReview = document.getElementById('btn-review');
+
+      if (progress === 'mastered') {
+        btnMastered.className = "flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold border transition-all duration-200 bg-emerald-500/20 text-emerald-400 border-emerald-500/30 shadow-md";
+        btnMastered.querySelector('span').innerText = '我已經滾瓜爛熟！';
+      } else {
+        btnMastered.className = "flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold border transition-all duration-200 bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-800";
+        btnMastered.querySelector('span').innerText = '標記為已熟記';
+      }
+
+      if (progress === 'review') {
+        btnReview.className = "flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold border transition-all duration-200 bg-yellow-500/20 text-yellow-400 border-yellow-500/30 shadow-md";
+        btnReview.querySelector('span').innerText = '這題要想一下！';
+      } else {
+        btnReview.className = "flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold border transition-all duration-200 bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-800";
+        btnReview.querySelector('span').innerText = '標記為需複習';
+      }
+
+      // Nav limits
+      document.getElementById('btn-prev').disabled = currentIndex === 0;
+      document.getElementById('btn-prev').className = currentIndex === 0
+        ? "flex items-center gap-1 px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-900 text-slate-600 border border-slate-800 cursor-not-allowed"
+        : "flex items-center gap-1 px-4 py-2.5 rounded-xl text-xs font-bold transition-all bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700";
+
+      document.getElementById('btn-next').disabled = currentIndex === filteredList.length - 1;
+      document.getElementById('btn-next').className = currentIndex === filteredList.length - 1
+        ? "flex items-center gap-1 px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-900 text-slate-600 border border-slate-800 cursor-not-allowed"
+        : "flex items-center gap-1 px-4 py-2.5 rounded-xl text-xs font-bold transition-all bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg";
+
+      // Render custom delete button if custom card
+      const delPlaceholder = document.getElementById('custom-delete-btn-placeholder');
+      if (card.id.startsWith('custom_')) {
+        delPlaceholder.innerHTML = `<button onclick="confirmDeleteCard('${card.id}', event)" class="text-xs flex items-center gap-1 text-rose-400 hover:text-rose-300 bg-rose-500/10 px-2.5 py-1 rounded-md transition-colors font-bold">刪除</button>`;
+      } else {
+        delPlaceholder.innerHTML = '';
+      }
+
+      lucide.createIcons();
+    }
+
+    // --- Render List View Cards ---
+    function renderListCards(filteredList) {
+      const container = document.getElementById('view-list-container');
+      container.innerHTML = '';
+
+      filteredList.forEach(card => {
+        const progress = cardProgress[card.id] || 'none';
+        let progressDotClass = 'bg-slate-700';
+        if (progress === 'mastered') progressDotClass = 'bg-emerald-500 shadow-md shadow-emerald-500/30';
+        if (progress === 'review') progressDotClass = 'bg-yellow-500 shadow-md shadow-yellow-500/30';
+
+        const customDelete = card.id.startsWith('custom_')
+          ? `<button onclick="confirmDeleteCard('${card.id}', event)" class="text-rose-400 hover:text-rose-300 transition-colors font-bold ml-auto">刪除</button>`
+          : '';
+
+        const cardHtml = `
+          <div onclick="toggleListCardFlip(this)" class="h-80 w-full perspective-1000 cursor-pointer">
+            <div class="relative w-full h-full duration-500 transform-style-3d card-inner">
+              
+              <!-- Front -->
+              <div class="absolute inset-0 w-full h-full backface-hidden bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between shadow-lg overflow-hidden">
+                <div class="flex items-center justify-between">
+                  <span class="text-[9px] bg-slate-800 text-indigo-400 border border-slate-700/60 px-2 py-0.5 rounded font-bold uppercase">
+                    ${card.category} • ${card.subcategory || '自訂'}
+                  </span>
+                  <span class="h-2.5 w-2.5 rounded-full ${progressDotClass}"></span>
+                </div>
+                
+                <div class="my-auto py-2">
+                  <h4 class="text-sm font-bold text-slate-100 line-clamp-4 leading-relaxed">
+                    ${card.question}
+                  </h4>
+                </div>
+
+                <div class="border-t border-slate-800/80 pt-3 flex items-center justify-between text-[10px] text-slate-400">
+                  <span class="italic truncate max-w-[150px]">${card.tip || '考前必背'}</span>
+                  <span class="text-indigo-400 flex items-center gap-1 font-bold">點擊翻面 <i data-lucide="rotate-cw" class="h-3 w-3"></i></span>
+                </div>
+              </div>
+
+              <!-- Back -->
+              <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-slate-900 border border-indigo-500/20 rounded-2xl p-5 flex flex-col justify-between shadow-lg overflow-y-auto">
+                <div class="flex items-center justify-between text-[10px]">
+                  <span class="text-emerald-400 font-bold">考點解答與口訣</span>
+                  <span class="text-slate-400">點擊翻回</span>
+                </div>
+
+                <div class="my-auto py-2">
+                  <p class="text-xs text-slate-200 leading-relaxed whitespace-pre-line font-medium">
+                    ${card.answer}
+                  </p>
+                </div>
+
+                <div class="border-t border-slate-800/80 pt-3 flex items-center justify-between text-[10px]">
+                  <div class="flex gap-1.5" onclick="event.stopPropagation()">
+                    <button onclick="toggleCardStatusDirect('${card.id}', 'mastered')" class="px-2 py-1 rounded font-bold ${progress === 'mastered' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'}">
+                      熟記
+                    </button>
+                    <button onclick="toggleCardStatusDirect('${card.id}', 'review')" class="px-2 py-1 rounded font-bold ${progress === 'review' ? 'bg-yellow-500/20 text-yellow-400' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'}">
+                      複習
+                    </button>
+                  </div>
+                  ${customDelete}
+                </div>
+              </div>
+
+            </div>
+          </div>
+        `;
+        container.insertAdjacentHTML('beforeend', cardHtml);
+      });
+      lucide.createIcons();
+    }
+
+    // --- Render Category list in sidebar ---
+    function renderCategoryButtons() {
+      const container = document.getElementById('category-buttons-container');
+      container.innerHTML = '';
+
+      const categories = ['全部', 'S級必考', '國文特訓', '數學特訓', '社會特訓', '自然與英文', '115預測與申論'];
+
+      categories.forEach(cat => {
+        const count = cat === '全部' 
+          ? cards.length 
+          : cards.filter(c => c.category === cat).length;
+
+        const isSelected = selectedCategory === cat;
+        const btnClass = isSelected
+          ? 'w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all duration-200 bg-slate-800 text-indigo-400 border-l-4 border-indigo-500 shadow-sm'
+          : 'w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all duration-200 text-slate-400 hover:bg-slate-800/40 hover:text-slate-200';
+
+        const buttonHtml = `
+          <button onclick="setCategory('${cat}')" class="${btnClass}">
+            <span>${cat}</span>
+            <span class="bg-slate-950 text-[10px] px-2 py-0.5 rounded-full text-slate-400 font-mono">
+              ${count}
+            </span>
+          </button>
+        `;
+        container.insertAdjacentHTML('beforeend', buttonHtml);
+      });
+    }
+
+    // --- UI Control Interactions ---
+    function switchTab(tabId) {
+      activeTab = tabId;
+      
+      // Update Tab Style
+      const tabs = ['flashcards', 'quick-notes', 'cheer'];
+      tabs.forEach(t => {
+        const tabBtn = document.getElementById(`tab-${t}`);
+        const section = document.getElementById(`section-${t}`);
+        if (t === tabId) {
+          tabBtn.className = "flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-md";
+          section.classList.remove('hidden');
+        } else {
+          tabBtn.className = "flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 text-slate-400 hover:text-slate-200";
+          section.classList.add('hidden');
+        }
+      });
+
+      renderApp();
+    }
+
+    function setViewMode(mode) {
+      viewMode = mode;
+      const btnFocus = document.getElementById('mode-focus');
+      const btnList = document.getElementById('mode-list');
+
+      if (mode === 'focus') {
+        btnFocus.className = "flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-indigo-600 text-white";
+        btnList.className = "flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-slate-200";
+      } else {
+        btnFocus.className = "flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-slate-200";
+        btnList.className = "flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-indigo-600 text-white";
+      }
+      renderApp();
+    }
+
+    function setCategory(cat) {
+      selectedCategory = cat;
+      currentIndex = 0;
+      flipped = false;
+      renderApp();
+    }
+
+    function setFilterStatus(status) {
+      filterStatus = status;
+      currentIndex = 0;
+      flipped = false;
+
+      // Update Filter Highlight
+      const statuses = ['all', 'mastered', 'review', 'none'];
+      statuses.forEach(s => {
+        const btn = document.getElementById(`filter-status-${s}`);
+        if (s === status) {
+          btn.className = "py-1.5 px-2 text-[10px] font-semibold rounded-lg border transition-all bg-indigo-500/10 text-indigo-400 border-indigo-500/20";
+        } else {
+          btn.className = "py-1.5 px-2 text-[10px] font-semibold rounded-lg border transition-all bg-slate-950 text-slate-400 border-slate-800/80";
+        }
+      });
+
+      renderApp();
+    }
+
+    function handleSearch(val) {
+      searchTerm = val;
+      currentIndex = 0;
+      flipped = false;
+      renderApp();
+    }
+
+    function clearSearch() {
+      document.getElementById('search-input').value = '';
+      searchTerm = '';
+      currentIndex = 0;
+      flipped = false;
+      renderApp();
+    }
+
+    function toggleFlip() {
+      flipped = !flipped;
+      const cardInner = document.getElementById('card-inner-box');
+      if (flipped) {
+        cardInner.classList.add('rotate-y-180');
+      } else {
+        cardInner.classList.remove('rotate-y-180');
+      }
+    }
+
+    function toggleListCardFlip(element) {
+      const inner = element.querySelector('.card-inner');
+      inner.classList.toggle('rotate-y-180');
+    }
+
+    // --- State updates ---
+    function toggleCardStatus(statusType) {
+      const filtered = getFilteredCards();
+      const card = filtered[currentIndex];
+      if (!card) return;
+
+      const currentStatus = cardProgress[card.id] || 'none';
+      if (currentStatus === statusType) {
+        cardProgress[card.id] = 'none';
+      } else {
+        cardProgress[card.id] = statusType;
+      }
+
+      // Update and save progress
+      localStorage.setItem('shijian_progress', JSON.stringify(cardProgress));
+      renderApp();
+    }
+
+    function toggleCardStatusDirect(cardId, statusType) {
+      const currentStatus = cardProgress[cardId] || 'none';
+      if (currentStatus === statusType) {
+        cardProgress[cardId] = 'none';
+      } else {
+        cardProgress[cardId] = statusType;
+      }
+      localStorage.setItem('shijian_progress', JSON.stringify(cardProgress));
+      renderApp();
+    }
+
+    function handleNext() {
+      const filtered = getFilteredCards();
+      if (currentIndex < filtered.length - 1) {
+        flipped = false;
+        setTimeout(() => {
+          currentIndex++;
+          renderApp();
+        }, 150);
+      }
+    }
+
+    function handlePrev() {
+      if (currentIndex > 0) {
+        flipped = false;
+        setTimeout(() => {
+          currentIndex--;
+          renderApp();
+        }, 150);
+      }
+    }
+
+    function handleShuffle() {
+      const filtered = getFilteredCards();
+      if (filtered.length <= 1) return;
+      
+      flipped = false;
+      // Get a random index from filtered list
+      const randomIndex = Math.floor(Math.random() * filtered.length);
+      currentIndex = randomIndex;
+      renderApp();
+    }
+
+    // --- Custom Alert Dialog Helpers (Never use browser alerts!) ---
+    function showAlert(title, message, iconType, isConfirm = false, onConfirm = null) {
+      document.getElementById('alert-title').innerText = title;
+      document.getElementById('alert-message').innerText = message;
+      
+      // Render Icon
+      const iconBox = document.getElementById('alert-icon-box');
+      if (iconType === 'success') {
+        iconBox.className = "h-12 w-12 rounded-full flex items-center justify-center bg-emerald-500/10 text-emerald-400";
+        iconBox.innerHTML = `<i data-lucide="check" class="h-6 w-6"></i>`;
+      } else if (iconType === 'error' || iconType === 'warning') {
+        iconBox.className = "h-12 w-12 rounded-full flex items-center justify-center bg-rose-500/10 text-rose-400";
+        iconBox.innerHTML = `<i data-lucide="alert-circle" class="h-6 w-6"></i>`;
+      } else {
+        iconBox.className = "h-12 w-12 rounded-full flex items-center justify-center bg-indigo-500/10 text-indigo-400";
+        iconBox.innerHTML = `<i data-lucide="sparkles" class="h-6 w-6"></i>`;
+      }
+
+      // Render buttons configuration
+      const cancelBtn = document.getElementById('alert-cancel-btn');
+      if (isConfirm) {
+        cancelBtn.classList.remove('hidden');
+      } else {
+        cancelBtn.classList.add('hidden');
+      }
+
+      // Callback setup
+      alertActionCallback = onConfirm;
+
+      // Show overlay
+      document.getElementById('alert-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeAlert() {
+      document.getElementById('alert-modal').classList.add('hidden');
+      alertActionCallback = null;
+    }
+
+    function executeAlertAction() {
+      if (alertActionCallback) {
+        alertActionCallback();
+      }
+      closeAlert();
+    }
+
+    // --- Actions with Confirm overlays ---
+    function confirmReset() {
+      showAlert(
+        '重設卡片狀態', 
+        '確定要清除妹妹當前的全部複習跟熟記紀錄，重新開始一輪特訓嗎？', 
+        'warning', 
+        true, 
+        () => {
+          cardProgress = {};
+          localStorage.removeItem('shijian_progress');
+          renderApp();
+          showAlert('重置成功', '全部閃卡進度已被歸零重設！', 'success');
+        }
+      );
+    }
+
+    function confirmDeleteCard(cardId, event) {
+      if (event) event.stopPropagation();
+      showAlert(
+        '確認刪除卡片', 
+        '確定要永遠刪除這張自訂複習閃卡嗎？此動作不可撤回！', 
+        'warning', 
+        true, 
+        () => {
+          cards = cards.filter(c => c.id !== cardId);
+          localStorage.setItem('shijian_cards', JSON.stringify(cards));
+          currentIndex = 0;
+          renderApp();
+          showAlert('刪除成功', '自訂卡片已被刪除！', 'success');
+        }
+      );
+    }
+
+    // --- Custom Modals control ---
+    function openAddModal() {
+      document.getElementById('add-modal').classList.remove('hidden');
+    }
+
+    function closeAddModal() {
+      document.getElementById('add-modal').classList.add('hidden');
+    }
+
+    function handleAddCard(e) {
+      e.preventDefault();
+      
+      const category = document.getElementById('modal-category').value;
+      const subcategory = document.getElementById('modal-subcategory').value || '自訂考點';
+      const question = document.getElementById('modal-question').value;
+      const answer = document.getElementById('modal-answer').value;
+      const tip = document.getElementById('modal-tip').value || '考前精華提示';
+      const difficulty = document.getElementById('modal-difficulty').value;
+
+      if (!question || !answer) {
+        showAlert('錯誤', '問題與解答內容不能為空！', 'error');
+        return;
+      }
+
+      const newCard = {
+        id: 'custom_' + Date.now(),
+        category,
+        subcategory,
+        question,
+        answer,
+        tip,
+        difficulty
+      };
+
+      // Add to array
+      cards.unshift(newCard);
+      localStorage.setItem('shijian_cards', JSON.stringify(cards));
+
+      // Reset Form fields
+      document.getElementById('modal-subcategory').value = '';
+      document.getElementById('modal-question').value = '';
+      document.getElementById('modal-answer').value = '';
+      document.getElementById('modal-tip').value = '';
+
+      closeAddModal();
+      setCategory(category);
+      showAlert('新增成功', '自訂複習閃卡已經加入資料庫的最前端！', 'success');
+    }
+  </script>
+</body>
+</html>
